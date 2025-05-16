@@ -1,0 +1,6 @@
+/.venv
+/.vscode
+/student_habits_performance.csv
+/test.txt
+/validate.txt
+/__pycache__
