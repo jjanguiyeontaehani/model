@@ -13,10 +13,11 @@ def default_config():
     return {
         "vocab_size": 10000,
         "special_tokens": ["[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]"],
-        "corpus_path": "data.txt",
+        "corpus_path": "depression_dataset.txt",
         "model_path": "my_wordpiece_tokenizer.json",
         "single_template": "[CLS] $A [SEP]",
         "pair_template": "[CLS] $A [SEP] $B [SEP]",
+        "max_length": 512,
     }
 
 class myTokenizer:
@@ -27,6 +28,7 @@ class myTokenizer:
         self.model_path = config["model_path"]
         self.single_template = config["single_template"]
         self.pair_template = config["pair_template"]
+        self.max_length = config["max_length"]
 
     def train_tokenizer(self):
         """
@@ -39,8 +41,8 @@ class myTokenizer:
         )
 
         pre_tokenizer = pre_tokenizers.WhitespaceSplit()
-        pre_tokenizer = pre_tokenizers.Sequence ( 
-            [pre_tokenizers.WhitespaceSplit(), pre_tokenizers.Punctuation()] 
+        pre_tokenizer = pre_tokenizers.Sequence(
+            [pre_tokenizers.WhitespaceSplit(), pre_tokenizers.Punctuation()]
         )
 
         tokenizer.pre_tokenizer = pre_tokenizer
@@ -73,6 +75,8 @@ class myTokenizer:
         :return: List of token IDs.
         """
         tokenizer = Tokenizer.from_file(self.model_path)
+        if (self.max_length > 0):
+            tokenizer.enable_truncation(max_length=self.max_length)
         encoded = tokenizer.encode(text)
         return encoded
 

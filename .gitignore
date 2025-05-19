@@ -3,4 +3,5 @@
 /student_habits_performance.csv
 /test.txt
 /validate.txt
+/ *.pth
 /__pycache__

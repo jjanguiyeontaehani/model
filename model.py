@@ -6,18 +6,17 @@ from dataclasses import dataclass
 
 @dataclass
 class ModelConfig:
-    vocab_size: int = 30000
-    dim_model: int = 2048
-    dim_ff: int = 2048
-    num_layers: int = 12
-    num_heads: int = 16
-    dropout: float = 0.1
-    batch_size: int = 1
-    max_len: int = 4096
+    vocab_size: int = 10000
+    dim_model: int = 1024
+    dim_ff: int = 1024
+    num_layers: int = 6
+    num_heads: int = 8
+    dropout: float = 0.15
+    batch_size: int = 32
+    max_len: int = 1024
     learning_rate: float = 0.001
     epoch: int = 300
     pad_token_id: int = 0
-    accum_steps: int = 8
     device: str = "cpu"
 
 class TokenEmbedding(nn.Module):
@@ -165,29 +164,39 @@ class TransformerModel(nn.Module):
         
         return output
 
+from torch.utils.data import IterableDataset, DataLoader
+from torch.nn.utils.rnn import pad_sequence
+import torch
+
 def create_attention_mask(input_ids, pad_token_id=0):
     batch_size, seq_len = input_ids.size()
     mask = (input_ids != pad_token_id).float()
-    
     attention_mask = mask.unsqueeze(1).expand(batch_size, seq_len, seq_len)
-    
     return attention_mask
 
-from torch.utils.data import IterableDataset, DataLoader
-from torch.nn.utils.rnn import pad_sequence
-
 class LazyTextIterableDataset(IterableDataset):
-    def __init__(self, text_generator, tokenizer):
-        self.text_generator = text_generator
+    def __init__(self, text_generator_fn, tokenizer):
+        self.text_generator_fn = text_generator_fn
         self.tokenizer = tokenizer
 
     def __iter__(self):
-        for text in self.text_generator:
-            token_ids = self.tokenizer.encode(text.strip()).ids
+        for text in self.text_generator_fn():
+            token_ids = self.tokenizer.encode(text).ids
             yield torch.tensor(token_ids, dtype=torch.long)
 
-def create_dataloader(texts_fn, tokenizer, config, shuffle=False):
-    dataset = LazyTextIterableDataset(texts_fn, tokenizer)
+def create_dataloader(fileName, tokenizer, config, shuffle=False):
+    
+    def yield_lines():
+        with open(fileName, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    yield line
+
+    with open(fileName, "r", encoding="utf-8") as f:
+        print('total lines:', sum(1 for line in f if line.strip()))
+
+    dataset = LazyTextIterableDataset(yield_lines, tokenizer)
 
     def collate_fn(batch):
         input_ids = pad_sequence(batch, batch_first=True, padding_value=config.pad_token_id)
@@ -205,8 +214,9 @@ def create_dataloader(texts_fn, tokenizer, config, shuffle=False):
         dataset,
         batch_size=config.batch_size,
         shuffle=shuffle,
-        collate_fn=collate_fn
+        collate_fn=collate_fn,
     )
+
 
 
 def train_model(model, dataloader, config, device="cpu"):
@@ -218,10 +228,9 @@ def train_model(model, dataloader, config, device="cpu"):
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
 
     best_loss = float('inf')
-    accum_steps = config.accum_steps
 
     for epoch in range(config.epoch):
-        total_loss = 0
+        epoch_loss = 0.0
         batch_count = 0
         optimizer.zero_grad()
 
@@ -237,23 +246,21 @@ def train_model(model, dataloader, config, device="cpu"):
                 labels.view(-1),
                 ignore_index=-100
             )
-            print(f"Batch {i+1}, Loss: {loss.item():.6f}")
+            print(f"Batch {i+1}, Loss: {loss.item():.3f}")
 
-            loss = loss / accum_steps
             loss.backward()
-
-            if (i + 1) % accum_steps == 0:
-                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-                optimizer.step()
-                optimizer.zero_grad()
-
-            total_loss += loss.item() * accum_steps
+            epoch_loss += loss.item()
             batch_count += 1
 
-        avg_loss = total_loss / batch_count
-        print(f"Epoch {epoch+1}/{config.epoch}, Average Loss: {avg_loss:.6f}")
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            optimizer.step()
+            optimizer.zero_grad()
 
+
+        avg_loss = epoch_loss / batch_count
+        print(f"Epoch {epoch+1}/{config.epoch}, Average Loss: {avg_loss:.6f}")
         scheduler.step(avg_loss)
+
 
         if avg_loss < best_loss:
             best_loss = avg_loss
@@ -271,20 +278,15 @@ import gc
 from tokenizer import myTokenizer
 
 if __name__ == "__main__":
-
-    def yield_lines(filename):
-        with open(filename, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    yield line
+    # filename = "test.txt"
+    filename = "depression_dataset.txt"
 
     print("Start reading data")
     tokenizer = myTokenizer()
     config = ModelConfig()
-    config.epoch = 100
+    config.epoch = 10
 
-    dataloader = create_dataloader(yield_lines("data.txt"), tokenizer, config)
+    dataloader = create_dataloader(filename, tokenizer, config)
 
     print("Data loaded successfully")
 
@@ -299,8 +301,11 @@ if __name__ == "__main__":
     gc.collect()
 
     model.eval()
-    validation_texts = ["what is the capital of France?"]
-    validation_dataloader = create_dataloader(validation_texts, tokenizer, config, shuffle=False)
+    config.batch_size = 1
+    config.epoch = 1
+    print("Start validation")
+
+    validation_dataloader = create_dataloader(filename, tokenizer, config, shuffle=False)
 
     running_loss = 0.0
     predictions = []
@@ -312,7 +317,7 @@ if __name__ == "__main__":
             attention_mask = batch['attention_mask'].to(config.device)
 
             for i in range(10):
-                print("Input IDs:", input_ids[0].tolist())
+                # print("Input IDs:", input_ids[0].tolist())
                 print("input text:", tokenizer.decode(input_ids[0].tolist()))
 
                 outputs = model(input_ids, attention_mask)
@@ -325,18 +330,32 @@ if __name__ == "__main__":
                 predict = torch.argmax(outputs, dim=-1)
                 tokens = predict[0].tolist()
 
-                print("Predicted Tokens:", tokens)
-                print("Predicted Text:", tokenizer.decode(tokens))
+                # print("Predicted Tokens:", tokens)
+                # print("Predicted Text:", tokenizer.decode(tokens))
                 print("Loss:", loss.item())
 
                 new_input = torch.cat(
-                    (input_ids[:, 1:], torch.tensor([[tokens[0]]], dtype=input_ids.dtype)),
+                    (input_ids[:, :], torch.tensor([[tokens[0]]], dtype=input_ids.dtype)),
                     dim=1
                 ).clone().detach()
 
                 input_ids = new_input
+                labels = input_ids.clone()
+                labels[:, :-1] = input_ids[:, 1:]
+                labels[:, -1] = -100
+                attention_mask = create_attention_mask(input_ids, config.pad_token_id).to(config.device)
+
                 predictions.append(tokens[0])
                 running_loss += loss.item()
 
     print("Final prediction:", predictions)
     print("Total loss:", running_loss)
+
+
+    with open("performance.txt", "w") as f:
+        f.write("model config:\n")
+        f.write(str(config))
+        f.write("\nvalidation loss:\n")
+        f.write(str(running_loss))
+    print("Validation completed!")
+    print("Performance saved to performance.txt")
