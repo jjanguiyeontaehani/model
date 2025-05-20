@@ -1,4 +1,5 @@
 import math
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -274,44 +275,15 @@ def train_model(model, dataloader, config, device="cpu"):
     print("Training completed!")
     return model
 
-import gc
-from tokenizer import myTokenizer
-
-if __name__ == "__main__":
-    # filename = "test.txt"
-    filename = "depression_dataset.txt"
-
-    print("Start reading data")
-    tokenizer = myTokenizer()
-    config = ModelConfig()
-    config.epoch = 10
-
-    dataloader = create_dataloader(filename, tokenizer, config)
-
-    print("Data loaded successfully")
-
-    model = TransformerModel(config)
-    
-    model.to(config.device)
-    # model = torch.compile(model)
-    model.train()
-    trained_model = train_model(model, dataloader, config)
-
-    del dataloader
-    gc.collect()
-
+def validate_model(model, dataloader, config):
     model.eval()
-    config.batch_size = 1
-    config.epoch = 1
-    print("Start validation")
-
-    validation_dataloader = create_dataloader(filename, tokenizer, config, shuffle=False)
+    running_loss = 0.0
 
     running_loss = 0.0
     predictions = []
 
     with torch.no_grad():
-        for batch in validation_dataloader:
+        for batch in dataloader:
             input_ids = batch['input_ids'].to(config.device)
             labels = batch['labels'].to(config.device)
             attention_mask = batch['attention_mask'].to(config.device)
@@ -359,3 +331,49 @@ if __name__ == "__main__":
         f.write(str(running_loss))
     print("Validation completed!")
     print("Performance saved to performance.txt")
+
+import gc
+from tokenizer import myTokenizer
+
+if __name__ == "__main__":
+    # filename = "test.txt"
+    filename = "depression_dataset.txt"
+
+    print("Start reading data")
+
+    def setSeed(seed):
+        import random
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
+    setSeed(18)
+
+    tokenizer = myTokenizer()
+    config = ModelConfig()
+    config.epoch = 10
+
+    dataloader = create_dataloader(filename, tokenizer, config)
+
+    print("Data loaded successfully")
+
+    model = TransformerModel(config)
+    
+    model.to(config.device)
+    # model = torch.compile(model)
+    model.train()
+    trained_model = train_model(model, dataloader, config)
+
+    del dataloader
+    gc.collect()
+
+    model.eval()
+    config.batch_size = 1
+    print("Start validation")
+
+    validation_dataloader = create_dataloader(filename, tokenizer, config)
+
+    validate_model(model, validation_dataloader, config)
