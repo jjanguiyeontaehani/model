@@ -1,4 +1,54 @@
-model config:
-ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, epoch=1, pad_token_id=0, device='cpu')
-validation loss:
-522535.4100342989
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.2, batch_size=1, max_len=1024, learning_rate=0.001, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.9845715917831017
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.6931095707840484
+added reinit method 
+if (epoch + 1) % 10 == 5:
+    reinit_bottom_n_percent_model(model, config.reinit_percent)
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.5648714012593803
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.607162062664791
+changed reinit method from 10 to averageLoss
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.5444745119254657
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=0, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.5946477231956375
+changed reinit method to
+ratio = step * (step + 1) // 2
+max_ratio = (config.epoch / 10) * (config.epoch / 10 + 1) // 2
+if epoch >= int(limit * ratio / max_ratio):
+    current_rate = config.reinit_percent
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=1, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.5623451781387858
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.5797171010857536
+changed reinit method to
+reinit_epoch = step * limit // 9
+    if epoch >= reinit_epoch and reinit_epoch < limit:
+        current_rate = min(config.reinit_percent, avg_loss)
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.6442442318630046
+changed reinit method to
+reinit_epoch = step * limit // 9
+    if epoch >= reinit_epoch and reinit_epoch <= limit:
+        current_rate = min(config.reinit_percent, avg_loss)
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.639057178645338
+changed reinit method to
+reinit_epoch = step * 10
+if epoch >= reinit_epoch and reinit_epoch <= limit:
+    current_rate = min(config.reinit_percent, avg_loss)
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=200, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.5215262418917104
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.001, reinit_percent=10, epoch=400, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.4970644471909786
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.0, batch_size=1, max_len=1024, learning_rate=0.0005, reinit_percent=0, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.7660757451261506
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.0, batch_size=1, max_len=1024, learning_rate=0.0005, reinit_percent=10, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.708203173567546
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.15, batch_size=1, max_len=1024, learning_rate=0.0005, reinit_percent=10, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.7348480654308924
+model config: ModelConfig(vocab_size=10000, dim_model=1024, dim_ff=1024, num_layers=6, num_heads=8, dropout=0.1, batch_size=1, max_len=1024, learning_rate=0.0005, reinit_percent=10, epoch=100, pad_token_id=0, device='cpu', valid_pred_cnt=1, seed=18)
+validation loss: 1.734471270986319
+changed shuffle to True

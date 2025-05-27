@@ -12,13 +12,16 @@ class ModelConfig:
     dim_ff: int = 1024
     num_layers: int = 6
     num_heads: int = 8
-    dropout: float = 0.15
-    batch_size: int = 32
+    dropout: float = 0.1
+    batch_size: int = 256
     max_len: int = 1024
-    learning_rate: float = 0.001
-    epoch: int = 300
+    learning_rate: float = 0.0005
+    reinit_percent: int = 10
+    epoch: int = 100
     pad_token_id: int = 0
     device: str = "cpu"
+    valid_pred_cnt: int = 1
+    seed: int = 18
 
 class TokenEmbedding(nn.Module):
     def __init__(self, config: ModelConfig):
@@ -60,7 +63,6 @@ class MultiHeadAttention(nn.Module):
 
         self.qkv_proj = nn.Linear(config.dim_model, config.dim_model * 3)
         self.out_proj = nn.Linear(config.dim_model, config.dim_model)
-        
         self.dropout = nn.Dropout(config.dropout)
 
     def forward(self, x, mask=None):
@@ -94,7 +96,7 @@ class TransformerLayer(nn.Module):
         self.attention = MultiHeadAttention(config)
         self.feed_forward = nn.Sequential(
             nn.Linear(config.dim_model, config.dim_ff),
-            nn.ReLU(),
+            nn.GELU(),
             nn.Dropout(config.dropout),
             nn.Linear(config.dim_ff, config.dim_model)
         )
@@ -185,7 +187,7 @@ class LazyTextIterableDataset(IterableDataset):
             token_ids = self.tokenizer.encode(text).ids
             yield torch.tensor(token_ids, dtype=torch.long)
 
-def create_dataloader(fileName, tokenizer, config, shuffle=False):
+def create_dataloader(fileName, tokenizer, config):
     
     def yield_lines():
         with open(fileName, "r", encoding="utf-8") as f:
@@ -214,23 +216,64 @@ def create_dataloader(fileName, tokenizer, config, shuffle=False):
     return DataLoader(
         dataset,
         batch_size=config.batch_size,
-        shuffle=shuffle,
+        shuffle=False,
         collate_fn=collate_fn,
     )
 
 
 
 def train_model(model, dataloader, config, device="cpu"):
+    import time
+    import math
+
     import torch.optim as optim
     from torch.optim.lr_scheduler import ReduceLROnPlateau
+    import torch.nn.init as init
+    
+    @torch.no_grad()
+    def reinit_bottom_n_percent_model(
+        model: nn.Module,
+        n_percent: float = 10.0,
+        init_fn_map: dict = None,
+        param_filter: callable = None
+    ):
+        if init_fn_map is None:
+            init_fn_map = {
+                'default': lambda t: init.kaiming_normal_(t, nonlinearity='leaky_relu'),
+                'bias':    lambda t: t.zero_()
+            }
+        if param_filter is None:
+            param_filter = lambda name, t: True
 
+        for name, param in model.named_parameters():
+            if not param.requires_grad or not param_filter(name, param):
+                continue
+
+            tensor = param.data
+            flat = tensor.abs().flatten()
+            if flat.numel() == 0:
+                continue
+            thr = torch.quantile(flat, n_percent / 100.0)
+
+            mask = tensor.abs() <= thr
+
+            new_t = torch.empty_like(tensor)
+            key = 'bias' if 'bias' in name else 'default'
+            init_fn_map.get(key, init_fn_map['default'])(new_t)
+
+            tensor[mask] = new_t[mask]
+
+    startTime = time.time()
+    avg_loss = config.reinit_percent
+    trainLossHistory = []
+    limit = int(config.epoch * 0.9)
+    step = 0
     
     optimizer = optim.AdamW(model.parameters(), lr=config.learning_rate, betas=(0.9, 0.98), eps=1e-9)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
-
-    best_loss = float('inf')
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
 
     for epoch in range(config.epoch):
+        epochStartTime = time.time()
         epoch_loss = 0.0
         batch_count = 0
         optimizer.zero_grad()
@@ -240,14 +283,12 @@ def train_model(model, dataloader, config, device="cpu"):
             labels = batch['labels'].to(device)
             attention_mask = batch['attention_mask'].to(device)
 
-
             outputs = model(input_ids, attention_mask)
             loss = F.cross_entropy(
                 outputs.view(-1, config.vocab_size),
                 labels.view(-1),
                 ignore_index=-100
             )
-            print(f"Batch {i+1}, Loss: {loss.item():.3f}")
 
             loss.backward()
             epoch_loss += loss.item()
@@ -257,29 +298,49 @@ def train_model(model, dataloader, config, device="cpu"):
             optimizer.step()
             optimizer.zero_grad()
 
+        reinit_epoch = step * 10
+        if epoch >= reinit_epoch and reinit_epoch <= limit:
+            current_rate = min(config.reinit_percent, avg_loss)
+            if current_rate > 0:
+                reinit_bottom_n_percent_model(
+                    model,
+                    n_percent=current_rate,
+                    init_fn_map={
+                        'default': lambda t: init.kaiming_normal_(t, nonlinearity='leaky_relu'),
+                        'bias':    lambda t: t.zero_()
+                    },
+                    param_filter=lambda name, t: 'norm' not in name
+                )
+                print(f"Reinitialized {current_rate}% of model parameters")
+            else:
+                print("No parameters were reinitialized.")
+            step += 1
+            
 
         avg_loss = epoch_loss / batch_count
-        print(f"Epoch {epoch+1}/{config.epoch}, Average Loss: {avg_loss:.6f}")
         scheduler.step(avg_loss)
 
+        trainLossHistory.append(avg_loss)
 
-        if avg_loss < best_loss:
-            best_loss = avg_loss
-            torch.save({
-                'epoch': epoch,
-                'model_state_dict': model.state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                'loss': best_loss,
-            }, f"transformer_model_best.pth")
+        # if avg_loss < best_loss:
+        #     best_loss = avg_loss
+        #     torch.save({
+        #         'epoch': epoch,
+        #         'model_state_dict': model.state_dict(),
+        #         'optimizer_state_dict': optimizer.state_dict(),
+        #         'loss': best_loss,
+        #     }, f"transformer_model_best.pth")
+        epochEndTime = time.time()
+        print(f"Epoch {epoch+1}/{config.epoch}, Average Loss: {avg_loss:.6f} completed in {epochEndTime - epochStartTime:.2f} seconds")
 
-    print("Training completed!")
+    elapsedTime = time.time() - startTime
+    print("Training completed in {:.2f} seconds".format(elapsedTime))
     return model
 
 def validate_model(model, dataloader, config):
     model.eval()
     running_loss = 0.0
-
-    running_loss = 0.0
+    validated_cnt = 0
     predictions = []
 
     with torch.no_grad():
@@ -288,9 +349,9 @@ def validate_model(model, dataloader, config):
             labels = batch['labels'].to(config.device)
             attention_mask = batch['attention_mask'].to(config.device)
 
-            for i in range(10):
+            for i in range(config.valid_pred_cnt):
                 # print("Input IDs:", input_ids[0].tolist())
-                print("input text:", tokenizer.decode(input_ids[0].tolist()))
+                # print("input text:", tokenizer.decode(input_ids[0].tolist()))
 
                 outputs = model(input_ids, attention_mask)
                 loss = F.cross_entropy(
@@ -303,7 +364,7 @@ def validate_model(model, dataloader, config):
                 tokens = predict[0].tolist()
 
                 # print("Predicted Tokens:", tokens)
-                # print("Predicted Text:", tokenizer.decode(tokens))
+                print("Predicted Text:", tokenizer.decode(tokens))
                 print("Loss:", loss.item())
 
                 new_input = torch.cat(
@@ -319,16 +380,18 @@ def validate_model(model, dataloader, config):
 
                 predictions.append(tokens[0])
                 running_loss += loss.item()
+                validated_cnt += 1
 
-    print("Final prediction:", predictions)
+    running_loss /= validated_cnt
+    # print("Final prediction:", predictions)
     print("Total loss:", running_loss)
 
 
-    with open("performance.txt", "w") as f:
-        f.write("model config:\n")
-        f.write(str(config))
-        f.write("\nvalidation loss:\n")
-        f.write(str(running_loss))
+    with open("performance.txt", "a") as f:
+        f.write("model config: ")
+        f.write(str(config) + "\n")
+        f.write("validation loss: ")
+        f.write(str(running_loss) + "\n")
     print("Validation completed!")
     print("Performance saved to performance.txt")
 
@@ -336,8 +399,9 @@ import gc
 from tokenizer import myTokenizer
 
 if __name__ == "__main__":
-    # filename = "test.txt"
-    filename = "depression_dataset.txt"
+    trainfilename = "basic_math_dataset.txt"
+    validationfilename = "basic_math_dataset2.txt"
+    # filename = "depression_dataset.txt"
 
     print("Start reading data")
 
@@ -350,20 +414,19 @@ if __name__ == "__main__":
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 
-    setSeed(18)
-
     tokenizer = myTokenizer()
     config = ModelConfig()
-    config.epoch = 10
 
-    dataloader = create_dataloader(filename, tokenizer, config)
+    if config.seed:
+        setSeed(config.seed)
+
+    dataloader = create_dataloader(trainfilename, tokenizer, config, shuffle=True)
 
     print("Data loaded successfully")
 
     model = TransformerModel(config)
     
     model.to(config.device)
-    # model = torch.compile(model)
     model.train()
     trained_model = train_model(model, dataloader, config)
 
@@ -374,6 +437,6 @@ if __name__ == "__main__":
     config.batch_size = 1
     print("Start validation")
 
-    validation_dataloader = create_dataloader(filename, tokenizer, config)
+    validation_dataloader = create_dataloader(validationfilename, tokenizer, config)
 
     validate_model(model, validation_dataloader, config)

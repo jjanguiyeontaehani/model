@@ -13,7 +13,7 @@ def default_config():
     return {
         "vocab_size": 10000,
         "special_tokens": ["[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]"],
-        "corpus_path": "depression_dataset.txt",
+        "corpus_path": "basic_math_dataset.txt",
         "model_path": "my_wordpiece_tokenizer.json",
         "single_template": "[CLS] $A [SEP]",
         "pair_template": "[CLS] $A [SEP] $B [SEP]",

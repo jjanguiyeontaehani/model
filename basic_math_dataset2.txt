@@ -1,0 +1,1659 @@
+1 is one
+-2 is minus two
+3 is not minus three
+-4 is not four
+-5 is not five
+6 is not minus six
+-7 is not seven
+-8 is not eight
+9 is not minus nine
+10 is not minus ten
+-11 is not eleven
+-12 is minus twelve
+13 is not minus thirteen
+14 is fourteen
+15 is fifteen
+16 is sixteen
+-17 is minus seventeen
+-18 is not eighteen
+-19 is minus nineteen
+-20 is not twenty
+21 is twenty-one
+-22 is minus twenty-two
+23 is not minus twenty-three
+-24 is minus twenty-four
+-25 is minus twenty-five
+26 is not minus twenty-six
+-27 is not twenty-seven
+-28 is not twenty-eight
+29 is not minus twenty-nine
+-30 is minus thirty
+-31 is not thirty-one
+-32 is minus thirty-two
+-33 is not thirty-three
+34 is thirty-four
+-35 is minus thirty-five
+-36 is minus thirty-six
+37 is thirty-seven
+38 is thirty-eight
+39 is thirty-nine
+-40 is minus forty
+-41 is minus forty-one
+-42 is not forty-two
+-43 is not forty-three
+-44 is not forty-four
+45 is forty-five
+-46 is minus forty-six
+-47 is minus forty-seven
+48 is forty-eight
+-49 is minus forty-nine
+50 is not minus fifty
+-51 is not fifty-one
+-52 is not fifty-two
+-53 is minus fifty-three
+54 is fifty-four
+55 is fifty-five
+56 is fifty-six
+-57 is not fifty-seven
+58 is not minus fifty-eight
+-59 is not fifty-nine
+-60 is minus sixty
+-61 is minus sixty-one
+62 is not minus sixty-two
+-63 is not sixty-three
+64 is not minus sixty-four
+-65 is minus sixty-five
+66 is not minus sixty-six
+-67 is minus sixty-seven
+-68 is minus sixty-eight
+69 is sixty-nine
+-70 is not seventy
+-71 is minus seventy-one
+-72 is minus seventy-two
+73 is seventy-three
+74 is not minus seventy-four
+75 is not minus seventy-five
+-76 is not seventy-six
+77 is seventy-seven
+-78 is not seventy-eight
+79 is not minus seventy-nine
+80 is not minus eighty
+-81 is not eighty-one
+82 is eighty-two
+-83 is not eighty-three
+-84 is not eighty-four
+-85 is not eighty-five
+-86 is not eighty-six
+87 is not minus eighty-seven
+88 is eighty-eight
+89 is eighty-nine
+-90 is not ninety
+91 is ninety-one
+92 is ninety-two
+-93 is not ninety-three
+-94 is not ninety-four
+-95 is not ninety-five
+-96 is not ninety-six
+-97 is minus ninety-seven
+-98 is minus ninety-eight
+-99 is minus ninety-nine
+-100 is not one hundred
+101 is one hundred and one
+102 is not minus one hundred and two
+103 is one hundred and three
+-104 is not one hundred and four
+105 is not minus one hundred and five
+-106 is minus one hundred and six
+-107 is not one hundred and seven
+108 is not minus one hundred and eight
+109 is not minus one hundred and nine
+110 is one hundred and ten
+111 is one hundred and eleven
+-112 is minus one hundred and twelve
+-113 is not one hundred and thirteen
+114 is one hundred and fourteen
+115 is not minus one hundred and fifteen
+-116 is minus one hundred and sixteen
+-117 is not one hundred and seventeen
+-118 is not one hundred and eighteen
+-119 is not one hundred and nineteen
+-120 is not one hundred and twenty
+-121 is minus one hundred and twenty-one
+-122 is not one hundred and twenty-two
+123 is not minus one hundred and twenty-three
+-124 is minus one hundred and twenty-four
+-125 is not one hundred and twenty-five
+126 is one hundred and twenty-six
+127 is not minus one hundred and twenty-seven
+128 is one hundred and twenty-eight
+-129 is not one hundred and twenty-nine
+-130 is minus one hundred and thirty
+131 is not minus one hundred and thirty-one
+-132 is minus one hundred and thirty-two
+133 is one hundred and thirty-three
+-134 is minus one hundred and thirty-four
+-135 is minus one hundred and thirty-five
+-136 is minus one hundred and thirty-six
+137 is not minus one hundred and thirty-seven
+-138 is not one hundred and thirty-eight
+139 is one hundred and thirty-nine
+140 is one hundred and forty
+141 is not minus one hundred and forty-one
+142 is one hundred and forty-two
+-143 is minus one hundred and forty-three
+-144 is not one hundred and forty-four
+-145 is minus one hundred and forty-five
+-146 is minus one hundred and forty-six
+147 is not minus one hundred and forty-seven
+-148 is minus one hundred and forty-eight
+149 is one hundred and forty-nine
+150 is not minus one hundred and fifty
+151 is one hundred and fifty-one
+152 is one hundred and fifty-two
+-153 is not one hundred and fifty-three
+-154 is not one hundred and fifty-four
+155 is one hundred and fifty-five
+156 is not minus one hundred and fifty-six
+-157 is minus one hundred and fifty-seven
+158 is one hundred and fifty-eight
+159 is one hundred and fifty-nine
+-160 is minus one hundred and sixty
+161 is one hundred and sixty-one
+-162 is not one hundred and sixty-two
+-163 is not one hundred and sixty-three
+164 is one hundred and sixty-four
+-165 is minus one hundred and sixty-five
+166 is not minus one hundred and sixty-six
+-167 is not one hundred and sixty-seven
+-168 is not one hundred and sixty-eight
+-169 is not one hundred and sixty-nine
+170 is one hundred and seventy
+-171 is not one hundred and seventy-one
+-172 is not one hundred and seventy-two
+173 is not minus one hundred and seventy-three
+174 is not minus one hundred and seventy-four
+175 is not minus one hundred and seventy-five
+-176 is minus one hundred and seventy-six
+177 is not minus one hundred and seventy-seven
+178 is not minus one hundred and seventy-eight
+179 is one hundred and seventy-nine
+-180 is not one hundred and eighty
+-181 is not one hundred and eighty-one
+-182 is not one hundred and eighty-two
+183 is one hundred and eighty-three
+-184 is minus one hundred and eighty-four
+185 is not minus one hundred and eighty-five
+186 is not minus one hundred and eighty-six
+187 is one hundred and eighty-seven
+-188 is not one hundred and eighty-eight
+-189 is not one hundred and eighty-nine
+190 is one hundred and ninety
+191 is not minus one hundred and ninety-one
+-192 is minus one hundred and ninety-two
+193 is one hundred and ninety-three
+-194 is minus one hundred and ninety-four
+-195 is not one hundred and ninety-five
+-196 is not one hundred and ninety-six
+-197 is not one hundred and ninety-seven
+198 is one hundred and ninety-eight
+-199 is minus one hundred and ninety-nine
+-200 is minus two hundred
+201 is not minus two hundred and one
+202 is not minus two hundred and two
+-203 is minus two hundred and three
+204 is not minus two hundred and four
+205 is two hundred and five
+206 is not minus two hundred and six
+-207 is not two hundred and seven
+208 is two hundred and eight
+-209 is minus two hundred and nine
+-210 is not two hundred and ten
+-211 is minus two hundred and eleven
+-212 is minus two hundred and twelve
+213 is two hundred and thirteen
+214 is not minus two hundred and fourteen
+-215 is not two hundred and fifteen
+-216 is not two hundred and sixteen
+-217 is minus two hundred and seventeen
+-218 is not two hundred and eighteen
+219 is two hundred and nineteen
+220 is two hundred and twenty
+-221 is not two hundred and twenty-one
+-222 is minus two hundred and twenty-two
+223 is two hundred and twenty-three
+224 is two hundred and twenty-four
+-225 is not two hundred and twenty-five
+-226 is not two hundred and twenty-six
+227 is two hundred and twenty-seven
+-228 is minus two hundred and twenty-eight
+-229 is not two hundred and twenty-nine
+230 is two hundred and thirty
+231 is two hundred and thirty-one
+-232 is not two hundred and thirty-two
+-233 is not two hundred and thirty-three
+-234 is minus two hundred and thirty-four
+235 is not minus two hundred and thirty-five
+-236 is minus two hundred and thirty-six
+-237 is not two hundred and thirty-seven
+-238 is minus two hundred and thirty-eight
+-239 is not two hundred and thirty-nine
+240 is two hundred and forty
+241 is not minus two hundred and forty-one
+242 is not minus two hundred and forty-two
+243 is not minus two hundred and forty-three
+-244 is not two hundred and forty-four
+245 is not minus two hundred and forty-five
+246 is not minus two hundred and forty-six
+247 is two hundred and forty-seven
+248 is two hundred and forty-eight
+249 is not minus two hundred and forty-nine
+250 is two hundred and fifty
+251 is not minus two hundred and fifty-one
+252 is two hundred and fifty-two
+253 is two hundred and fifty-three
+254 is two hundred and fifty-four
+-255 is minus two hundred and fifty-five
+256 is not minus two hundred and fifty-six
+257 is not minus two hundred and fifty-seven
+-258 is minus two hundred and fifty-eight
+259 is not minus two hundred and fifty-nine
+-260 is not two hundred and sixty
+261 is not minus two hundred and sixty-one
+262 is two hundred and sixty-two
+-263 is not two hundred and sixty-three
+264 is not minus two hundred and sixty-four
+265 is not minus two hundred and sixty-five
+266 is two hundred and sixty-six
+-267 is not two hundred and sixty-seven
+268 is not minus two hundred and sixty-eight
+269 is two hundred and sixty-nine
+270 is two hundred and seventy
+-271 is minus two hundred and seventy-one
+-272 is not two hundred and seventy-two
+273 is two hundred and seventy-three
+274 is two hundred and seventy-four
+275 is not minus two hundred and seventy-five
+-276 is not two hundred and seventy-six
+277 is two hundred and seventy-seven
+278 is not minus two hundred and seventy-eight
+-279 is minus two hundred and seventy-nine
+-280 is not two hundred and eighty
+281 is two hundred and eighty-one
+282 is not minus two hundred and eighty-two
+-283 is minus two hundred and eighty-three
+284 is not minus two hundred and eighty-four
+-285 is minus two hundred and eighty-five
+286 is two hundred and eighty-six
+287 is two hundred and eighty-seven
+-288 is minus two hundred and eighty-eight
+289 is not minus two hundred and eighty-nine
+290 is not minus two hundred and ninety
+-291 is minus two hundred and ninety-one
+292 is not minus two hundred and ninety-two
+293 is not minus two hundred and ninety-three
+294 is not minus two hundred and ninety-four
+295 is not minus two hundred and ninety-five
+296 is two hundred and ninety-six
+-297 is not two hundred and ninety-seven
+-298 is minus two hundred and ninety-eight
+299 is two hundred and ninety-nine
+-300 is not three hundred
+301 is not minus three hundred and one
+302 is three hundred and two
+-303 is minus three hundred and three
+-304 is not three hundred and four
+-305 is minus three hundred and five
+-306 is not three hundred and six
+-307 is minus three hundred and seven
+-308 is minus three hundred and eight
+-309 is not three hundred and nine
+-310 is not three hundred and ten
+-311 is not three hundred and eleven
+312 is three hundred and twelve
+-313 is not three hundred and thirteen
+-314 is minus three hundred and fourteen
+-315 is minus three hundred and fifteen
+316 is three hundred and sixteen
+317 is not minus three hundred and seventeen
+-318 is not three hundred and eighteen
+-319 is not three hundred and nineteen
+-320 is minus three hundred and twenty
+321 is not minus three hundred and twenty-one
+322 is not minus three hundred and twenty-two
+323 is three hundred and twenty-three
+-324 is minus three hundred and twenty-four
+-325 is not three hundred and twenty-five
+-326 is minus three hundred and twenty-six
+327 is not minus three hundred and twenty-seven
+328 is not minus three hundred and twenty-eight
+329 is three hundred and twenty-nine
+330 is not minus three hundred and thirty
+331 is not minus three hundred and thirty-one
+332 is not minus three hundred and thirty-two
+333 is three hundred and thirty-three
+-334 is not three hundred and thirty-four
+-335 is minus three hundred and thirty-five
+336 is not minus three hundred and thirty-six
+-337 is minus three hundred and thirty-seven
+-338 is minus three hundred and thirty-eight
+-339 is not three hundred and thirty-nine
+340 is not minus three hundred and forty
+341 is three hundred and forty-one
+342 is not minus three hundred and forty-two
+-343 is minus three hundred and forty-three
+344 is three hundred and forty-four
+-345 is not three hundred and forty-five
+-346 is minus three hundred and forty-six
+347 is three hundred and forty-seven
+348 is three hundred and forty-eight
+349 is not minus three hundred and forty-nine
+-350 is not three hundred and fifty
+351 is three hundred and fifty-one
+-352 is minus three hundred and fifty-two
+353 is not minus three hundred and fifty-three
+-354 is not three hundred and fifty-four
+-355 is not three hundred and fifty-five
+-356 is minus three hundred and fifty-six
+-357 is minus three hundred and fifty-seven
+-358 is minus three hundred and fifty-eight
+359 is not minus three hundred and fifty-nine
+-360 is minus three hundred and sixty
+361 is three hundred and sixty-one
+-362 is minus three hundred and sixty-two
+363 is not minus three hundred and sixty-three
+-364 is not three hundred and sixty-four
+365 is not minus three hundred and sixty-five
+-366 is not three hundred and sixty-six
+367 is three hundred and sixty-seven
+368 is not minus three hundred and sixty-eight
+-369 is minus three hundred and sixty-nine
+370 is three hundred and seventy
+-371 is not three hundred and seventy-one
+372 is not minus three hundred and seventy-two
+373 is not minus three hundred and seventy-three
+-374 is minus three hundred and seventy-four
+-375 is minus three hundred and seventy-five
+-376 is minus three hundred and seventy-six
+-377 is not three hundred and seventy-seven
+378 is not minus three hundred and seventy-eight
+-379 is minus three hundred and seventy-nine
+-380 is not three hundred and eighty
+381 is not minus three hundred and eighty-one
+382 is not minus three hundred and eighty-two
+-383 is not three hundred and eighty-three
+384 is not minus three hundred and eighty-four
+-385 is minus three hundred and eighty-five
+-386 is minus three hundred and eighty-six
+387 is not minus three hundred and eighty-seven
+-388 is minus three hundred and eighty-eight
+-389 is minus three hundred and eighty-nine
+390 is not minus three hundred and ninety
+391 is three hundred and ninety-one
+-392 is minus three hundred and ninety-two
+393 is not minus three hundred and ninety-three
+-394 is minus three hundred and ninety-four
+395 is three hundred and ninety-five
+-396 is not three hundred and ninety-six
+397 is three hundred and ninety-seven
+398 is three hundred and ninety-eight
+399 is not minus three hundred and ninety-nine
+400 is four hundred
+-401 is minus four hundred and one
+-402 is minus four hundred and two
+-403 is minus four hundred and three
+404 is not minus four hundred and four
+-405 is not four hundred and five
+406 is not minus four hundred and six
+407 is four hundred and seven
+-408 is minus four hundred and eight
+-409 is not four hundred and nine
+-410 is not four hundred and ten
+-411 is not four hundred and eleven
+-412 is minus four hundred and twelve
+413 is not minus four hundred and thirteen
+-414 is not four hundred and fourteen
+-415 is not four hundred and fifteen
+416 is not minus four hundred and sixteen
+417 is not minus four hundred and seventeen
+-418 is not four hundred and eighteen
+419 is four hundred and nineteen
+420 is not minus four hundred and twenty
+-421 is not four hundred and twenty-one
+422 is not minus four hundred and twenty-two
+-423 is not four hundred and twenty-three
+424 is not minus four hundred and twenty-four
+-425 is not four hundred and twenty-five
+426 is four hundred and twenty-six
+-427 is not four hundred and twenty-seven
+-428 is not four hundred and twenty-eight
+429 is four hundred and twenty-nine
+-430 is minus four hundred and thirty
+-431 is not four hundred and thirty-one
+432 is not minus four hundred and thirty-two
+433 is four hundred and thirty-three
+-434 is minus four hundred and thirty-four
+-435 is not four hundred and thirty-five
+436 is four hundred and thirty-six
+437 is four hundred and thirty-seven
+438 is not minus four hundred and thirty-eight
+-439 is not four hundred and thirty-nine
+-440 is minus four hundred and forty
+441 is four hundred and forty-one
+442 is not minus four hundred and forty-two
+-443 is minus four hundred and forty-three
+-444 is minus four hundred and forty-four
+-445 is not four hundred and forty-five
+-446 is not four hundred and forty-six
+447 is not minus four hundred and forty-seven
+448 is not minus four hundred and forty-eight
+449 is not minus four hundred and forty-nine
+450 is not minus four hundred and fifty
+451 is four hundred and fifty-one
+-452 is not four hundred and fifty-two
+453 is not minus four hundred and fifty-three
+454 is not minus four hundred and fifty-four
+455 is not minus four hundred and fifty-five
+-456 is minus four hundred and fifty-six
+-457 is not four hundred and fifty-seven
+458 is four hundred and fifty-eight
+459 is not minus four hundred and fifty-nine
+460 is four hundred and sixty
+461 is not minus four hundred and sixty-one
+-462 is not four hundred and sixty-two
+-463 is not four hundred and sixty-three
+-464 is minus four hundred and sixty-four
+465 is four hundred and sixty-five
+-466 is minus four hundred and sixty-six
+-467 is minus four hundred and sixty-seven
+468 is not minus four hundred and sixty-eight
+469 is four hundred and sixty-nine
+470 is not minus four hundred and seventy
+471 is four hundred and seventy-one
+472 is not minus four hundred and seventy-two
+473 is not minus four hundred and seventy-three
+-474 is minus four hundred and seventy-four
+-475 is not four hundred and seventy-five
+-476 is not four hundred and seventy-six
+477 is four hundred and seventy-seven
+-478 is minus four hundred and seventy-eight
+479 is four hundred and seventy-nine
+480 is four hundred and eighty
+481 is four hundred and eighty-one
+482 is not minus four hundred and eighty-two
+483 is not minus four hundred and eighty-three
+-484 is not four hundred and eighty-four
+-485 is minus four hundred and eighty-five
+-486 is minus four hundred and eighty-six
+487 is four hundred and eighty-seven
+-488 is minus four hundred and eighty-eight
+489 is four hundred and eighty-nine
+-490 is minus four hundred and ninety
+491 is four hundred and ninety-one
+492 is not minus four hundred and ninety-two
+-493 is not four hundred and ninety-three
+-494 is minus four hundred and ninety-four
+-495 is minus four hundred and ninety-five
+-496 is minus four hundred and ninety-six
+-497 is not four hundred and ninety-seven
+-498 is not four hundred and ninety-eight
+499 is not minus four hundred and ninety-nine
+-500 is minus five hundred
+-501 is not five hundred and one
+502 is five hundred and two
+-503 is not five hundred and three
+-504 is not five hundred and four
+505 is five hundred and five
+506 is not minus five hundred and six
+-507 is minus five hundred and seven
+-508 is minus five hundred and eight
+509 is five hundred and nine
+510 is not minus five hundred and ten
+511 is not minus five hundred and eleven
+-512 is minus five hundred and twelve
+513 is not minus five hundred and thirteen
+-514 is minus five hundred and fourteen
+515 is not minus five hundred and fifteen
+516 is five hundred and sixteen
+517 is five hundred and seventeen
+518 is not minus five hundred and eighteen
+519 is not minus five hundred and nineteen
+520 is five hundred and twenty
+-521 is not five hundred and twenty-one
+-522 is not five hundred and twenty-two
+-523 is minus five hundred and twenty-three
+524 is five hundred and twenty-four
+525 is not minus five hundred and twenty-five
+526 is five hundred and twenty-six
+-527 is not five hundred and twenty-seven
+528 is five hundred and twenty-eight
+529 is not minus five hundred and twenty-nine
+530 is not minus five hundred and thirty
+531 is five hundred and thirty-one
+532 is not minus five hundred and thirty-two
+533 is five hundred and thirty-three
+-534 is minus five hundred and thirty-four
+535 is not minus five hundred and thirty-five
+-536 is minus five hundred and thirty-six
+-537 is minus five hundred and thirty-seven
+-538 is minus five hundred and thirty-eight
+-539 is minus five hundred and thirty-nine
+-540 is not five hundred and forty
+541 is not minus five hundred and forty-one
+-542 is not five hundred and forty-two
+543 is five hundred and forty-three
+544 is five hundred and forty-four
+-545 is not five hundred and forty-five
+546 is five hundred and forty-six
+-547 is not five hundred and forty-seven
+548 is not minus five hundred and forty-eight
+-549 is not five hundred and forty-nine
+550 is not minus five hundred and fifty
+-551 is minus five hundred and fifty-one
+-552 is not five hundred and fifty-two
+-553 is not five hundred and fifty-three
+-554 is minus five hundred and fifty-four
+-555 is minus five hundred and fifty-five
+556 is five hundred and fifty-six
+557 is five hundred and fifty-seven
+558 is not minus five hundred and fifty-eight
+-559 is minus five hundred and fifty-nine
+560 is five hundred and sixty
+-561 is not five hundred and sixty-one
+-562 is minus five hundred and sixty-two
+-563 is not five hundred and sixty-three
+564 is five hundred and sixty-four
+565 is five hundred and sixty-five
+-566 is not five hundred and sixty-six
+-567 is minus five hundred and sixty-seven
+-568 is minus five hundred and sixty-eight
+569 is five hundred and sixty-nine
+-570 is not five hundred and seventy
+-571 is minus five hundred and seventy-one
+572 is not minus five hundred and seventy-two
+-573 is minus five hundred and seventy-three
+-574 is not five hundred and seventy-four
+575 is five hundred and seventy-five
+576 is five hundred and seventy-six
+577 is not minus five hundred and seventy-seven
+-578 is not five hundred and seventy-eight
+-579 is minus five hundred and seventy-nine
+580 is not minus five hundred and eighty
+581 is not minus five hundred and eighty-one
+-582 is not five hundred and eighty-two
+583 is five hundred and eighty-three
+584 is five hundred and eighty-four
+585 is five hundred and eighty-five
+-586 is minus five hundred and eighty-six
+-587 is minus five hundred and eighty-seven
+-588 is minus five hundred and eighty-eight
+-589 is not five hundred and eighty-nine
+590 is five hundred and ninety
+-591 is not five hundred and ninety-one
+-592 is minus five hundred and ninety-two
+593 is not minus five hundred and ninety-three
+-594 is minus five hundred and ninety-four
+-595 is not five hundred and ninety-five
+596 is five hundred and ninety-six
+597 is not minus five hundred and ninety-seven
+-598 is not five hundred and ninety-eight
+-599 is minus five hundred and ninety-nine
+-600 is not six hundred
+-601 is not six hundred and one
+602 is six hundred and two
+-603 is not six hundred and three
+-604 is not six hundred and four
+605 is six hundred and five
+606 is not minus six hundred and six
+-607 is minus six hundred and seven
+608 is not minus six hundred and eight
+609 is not minus six hundred and nine
+610 is six hundred and ten
+611 is not minus six hundred and eleven
+-612 is not six hundred and twelve
+-613 is minus six hundred and thirteen
+614 is not minus six hundred and fourteen
+-615 is not six hundred and fifteen
+616 is six hundred and sixteen
+-617 is minus six hundred and seventeen
+618 is not minus six hundred and eighteen
+619 is not minus six hundred and nineteen
+620 is six hundred and twenty
+621 is not minus six hundred and twenty-one
+-622 is not six hundred and twenty-two
+623 is six hundred and twenty-three
+-624 is not six hundred and twenty-four
+625 is not minus six hundred and twenty-five
+626 is not minus six hundred and twenty-six
+-627 is minus six hundred and twenty-seven
+628 is not minus six hundred and twenty-eight
+629 is not minus six hundred and twenty-nine
+630 is not minus six hundred and thirty
+631 is six hundred and thirty-one
+632 is six hundred and thirty-two
+633 is not minus six hundred and thirty-three
+634 is six hundred and thirty-four
+635 is not minus six hundred and thirty-five
+636 is six hundred and thirty-six
+637 is not minus six hundred and thirty-seven
+-638 is not six hundred and thirty-eight
+-639 is minus six hundred and thirty-nine
+-640 is not six hundred and forty
+-641 is minus six hundred and forty-one
+-642 is minus six hundred and forty-two
+-643 is not six hundred and forty-three
+644 is not minus six hundred and forty-four
+-645 is minus six hundred and forty-five
+-646 is not six hundred and forty-six
+-647 is minus six hundred and forty-seven
+648 is six hundred and forty-eight
+-649 is not six hundred and forty-nine
+-650 is not six hundred and fifty
+651 is six hundred and fifty-one
+652 is not minus six hundred and fifty-two
+-653 is minus six hundred and fifty-three
+-654 is minus six hundred and fifty-four
+655 is not minus six hundred and fifty-five
+656 is six hundred and fifty-six
+657 is six hundred and fifty-seven
+658 is not minus six hundred and fifty-eight
+659 is not minus six hundred and fifty-nine
+660 is six hundred and sixty
+661 is not minus six hundred and sixty-one
+-662 is not six hundred and sixty-two
+663 is not minus six hundred and sixty-three
+-664 is not six hundred and sixty-four
+-665 is not six hundred and sixty-five
+666 is six hundred and sixty-six
+-667 is not six hundred and sixty-seven
+668 is six hundred and sixty-eight
+-669 is minus six hundred and sixty-nine
+670 is six hundred and seventy
+-671 is not six hundred and seventy-one
+672 is six hundred and seventy-two
+-673 is minus six hundred and seventy-three
+674 is not minus six hundred and seventy-four
+675 is not minus six hundred and seventy-five
+676 is six hundred and seventy-six
+677 is not minus six hundred and seventy-seven
+678 is six hundred and seventy-eight
+679 is six hundred and seventy-nine
+680 is six hundred and eighty
+-681 is minus six hundred and eighty-one
+682 is not minus six hundred and eighty-two
+-683 is not six hundred and eighty-three
+684 is six hundred and eighty-four
+-685 is not six hundred and eighty-five
+-686 is not six hundred and eighty-six
+-687 is not six hundred and eighty-seven
+-688 is minus six hundred and eighty-eight
+-689 is not six hundred and eighty-nine
+-690 is not six hundred and ninety
+-691 is minus six hundred and ninety-one
+-692 is not six hundred and ninety-two
+693 is six hundred and ninety-three
+-694 is minus six hundred and ninety-four
+-695 is not six hundred and ninety-five
+-696 is not six hundred and ninety-six
+-697 is minus six hundred and ninety-seven
+-698 is not six hundred and ninety-eight
+699 is not minus six hundred and ninety-nine
+-700 is minus seven hundred
+701 is seven hundred and one
+-702 is not seven hundred and two
+-703 is not seven hundred and three
+-704 is not seven hundred and four
+-705 is not seven hundred and five
+706 is not minus seven hundred and six
+-707 is not seven hundred and seven
+-708 is minus seven hundred and eight
+709 is not minus seven hundred and nine
+-710 is minus seven hundred and ten
+-711 is not seven hundred and eleven
+-712 is minus seven hundred and twelve
+-713 is not seven hundred and thirteen
+714 is not minus seven hundred and fourteen
+-715 is minus seven hundred and fifteen
+-716 is minus seven hundred and sixteen
+717 is seven hundred and seventeen
+718 is not minus seven hundred and eighteen
+-719 is minus seven hundred and nineteen
+720 is not minus seven hundred and twenty
+-721 is minus seven hundred and twenty-one
+-722 is not seven hundred and twenty-two
+-723 is minus seven hundred and twenty-three
+724 is seven hundred and twenty-four
+725 is seven hundred and twenty-five
+-726 is not seven hundred and twenty-six
+727 is not minus seven hundred and twenty-seven
+-728 is not seven hundred and twenty-eight
+729 is seven hundred and twenty-nine
+-730 is minus seven hundred and thirty
+731 is not minus seven hundred and thirty-one
+-732 is minus seven hundred and thirty-two
+-733 is not seven hundred and thirty-three
+734 is seven hundred and thirty-four
+735 is not minus seven hundred and thirty-five
+736 is seven hundred and thirty-six
+737 is not minus seven hundred and thirty-seven
+-738 is minus seven hundred and thirty-eight
+-739 is minus seven hundred and thirty-nine
+740 is not minus seven hundred and forty
+-741 is minus seven hundred and forty-one
+742 is seven hundred and forty-two
+-743 is minus seven hundred and forty-three
+744 is not minus seven hundred and forty-four
+-745 is not seven hundred and forty-five
+-746 is not seven hundred and forty-six
+747 is seven hundred and forty-seven
+-748 is not seven hundred and forty-eight
+-749 is minus seven hundred and forty-nine
+750 is not minus seven hundred and fifty
+-751 is not seven hundred and fifty-one
+-752 is minus seven hundred and fifty-two
+-753 is not seven hundred and fifty-three
+-754 is minus seven hundred and fifty-four
+-755 is minus seven hundred and fifty-five
+-756 is not seven hundred and fifty-six
+757 is seven hundred and fifty-seven
+-758 is not seven hundred and fifty-eight
+-759 is minus seven hundred and fifty-nine
+760 is seven hundred and sixty
+761 is not minus seven hundred and sixty-one
+-762 is minus seven hundred and sixty-two
+-763 is minus seven hundred and sixty-three
+764 is not minus seven hundred and sixty-four
+765 is seven hundred and sixty-five
+-766 is minus seven hundred and sixty-six
+767 is seven hundred and sixty-seven
+768 is seven hundred and sixty-eight
+769 is seven hundred and sixty-nine
+-770 is not seven hundred and seventy
+-771 is not seven hundred and seventy-one
+772 is seven hundred and seventy-two
+773 is not minus seven hundred and seventy-three
+774 is seven hundred and seventy-four
+775 is not minus seven hundred and seventy-five
+-776 is minus seven hundred and seventy-six
+777 is not minus seven hundred and seventy-seven
+-778 is not seven hundred and seventy-eight
+-779 is not seven hundred and seventy-nine
+780 is seven hundred and eighty
+-781 is not seven hundred and eighty-one
+-782 is not seven hundred and eighty-two
+-783 is not seven hundred and eighty-three
+784 is seven hundred and eighty-four
+785 is seven hundred and eighty-five
+786 is not minus seven hundred and eighty-six
+-787 is not seven hundred and eighty-seven
+-788 is not seven hundred and eighty-eight
+789 is seven hundred and eighty-nine
+-790 is minus seven hundred and ninety
+791 is seven hundred and ninety-one
+-792 is not seven hundred and ninety-two
+793 is not minus seven hundred and ninety-three
+794 is seven hundred and ninety-four
+-795 is not seven hundred and ninety-five
+796 is not minus seven hundred and ninety-six
+797 is seven hundred and ninety-seven
+-798 is minus seven hundred and ninety-eight
+799 is not minus seven hundred and ninety-nine
+-800 is minus eight hundred
+-801 is not eight hundred and one
+-802 is not eight hundred and two
+803 is not minus eight hundred and three
+804 is not minus eight hundred and four
+805 is eight hundred and five
+806 is not minus eight hundred and six
+-807 is not eight hundred and seven
+808 is not minus eight hundred and eight
+809 is not minus eight hundred and nine
+810 is not minus eight hundred and ten
+-811 is minus eight hundred and eleven
+-812 is minus eight hundred and twelve
+813 is not minus eight hundred and thirteen
+-814 is not eight hundred and fourteen
+815 is not minus eight hundred and fifteen
+816 is eight hundred and sixteen
+-817 is not eight hundred and seventeen
+-818 is not eight hundred and eighteen
+819 is not minus eight hundred and nineteen
+820 is eight hundred and twenty
+821 is eight hundred and twenty-one
+-822 is minus eight hundred and twenty-two
+823 is eight hundred and twenty-three
+824 is not minus eight hundred and twenty-four
+825 is not minus eight hundred and twenty-five
+826 is not minus eight hundred and twenty-six
+827 is not minus eight hundred and twenty-seven
+-828 is minus eight hundred and twenty-eight
+829 is eight hundred and twenty-nine
+-830 is minus eight hundred and thirty
+831 is eight hundred and thirty-one
+832 is not minus eight hundred and thirty-two
+833 is eight hundred and thirty-three
+834 is not minus eight hundred and thirty-four
+835 is eight hundred and thirty-five
+836 is not minus eight hundred and thirty-six
+-837 is not eight hundred and thirty-seven
+838 is not minus eight hundred and thirty-eight
+-839 is not eight hundred and thirty-nine
+840 is not minus eight hundred and forty
+841 is eight hundred and forty-one
+842 is not minus eight hundred and forty-two
+-843 is not eight hundred and forty-three
+-844 is not eight hundred and forty-four
+-845 is not eight hundred and forty-five
+846 is eight hundred and forty-six
+-847 is not eight hundred and forty-seven
+848 is not minus eight hundred and forty-eight
+849 is not minus eight hundred and forty-nine
+850 is not minus eight hundred and fifty
+851 is eight hundred and fifty-one
+852 is eight hundred and fifty-two
+853 is eight hundred and fifty-three
+-854 is not eight hundred and fifty-four
+855 is eight hundred and fifty-five
+-856 is minus eight hundred and fifty-six
+857 is eight hundred and fifty-seven
+858 is not minus eight hundred and fifty-eight
+859 is not minus eight hundred and fifty-nine
+-860 is minus eight hundred and sixty
+861 is eight hundred and sixty-one
+862 is not minus eight hundred and sixty-two
+863 is eight hundred and sixty-three
+864 is eight hundred and sixty-four
+-865 is minus eight hundred and sixty-five
+-866 is not eight hundred and sixty-six
+867 is not minus eight hundred and sixty-seven
+-868 is minus eight hundred and sixty-eight
+869 is eight hundred and sixty-nine
+-870 is minus eight hundred and seventy
+-871 is minus eight hundred and seventy-one
+872 is eight hundred and seventy-two
+-873 is minus eight hundred and seventy-three
+-874 is minus eight hundred and seventy-four
+875 is eight hundred and seventy-five
+-876 is not eight hundred and seventy-six
+-877 is not eight hundred and seventy-seven
+-878 is minus eight hundred and seventy-eight
+879 is eight hundred and seventy-nine
+880 is not minus eight hundred and eighty
+881 is eight hundred and eighty-one
+-882 is not eight hundred and eighty-two
+-883 is not eight hundred and eighty-three
+-884 is not eight hundred and eighty-four
+885 is not minus eight hundred and eighty-five
+-886 is minus eight hundred and eighty-six
+-887 is not eight hundred and eighty-seven
+-888 is not eight hundred and eighty-eight
+-889 is minus eight hundred and eighty-nine
+890 is eight hundred and ninety
+-891 is not eight hundred and ninety-one
+892 is not minus eight hundred and ninety-two
+-893 is minus eight hundred and ninety-three
+894 is eight hundred and ninety-four
+895 is not minus eight hundred and ninety-five
+-896 is not eight hundred and ninety-six
+897 is not minus eight hundred and ninety-seven
+898 is eight hundred and ninety-eight
+-899 is minus eight hundred and ninety-nine
+-900 is minus nine hundred
+-901 is not nine hundred and one
+-902 is minus nine hundred and two
+-903 is not nine hundred and three
+-904 is not nine hundred and four
+905 is nine hundred and five
+906 is not minus nine hundred and six
+-907 is minus nine hundred and seven
+-908 is minus nine hundred and eight
+-909 is not nine hundred and nine
+910 is not minus nine hundred and ten
+911 is not minus nine hundred and eleven
+912 is not minus nine hundred and twelve
+913 is nine hundred and thirteen
+-914 is minus nine hundred and fourteen
+915 is nine hundred and fifteen
+-916 is minus nine hundred and sixteen
+-917 is not nine hundred and seventeen
+-918 is not nine hundred and eighteen
+-919 is not nine hundred and nineteen
+920 is not minus nine hundred and twenty
+-921 is not nine hundred and twenty-one
+922 is not minus nine hundred and twenty-two
+-923 is not nine hundred and twenty-three
+924 is not minus nine hundred and twenty-four
+-925 is minus nine hundred and twenty-five
+926 is nine hundred and twenty-six
+927 is not minus nine hundred and twenty-seven
+928 is not minus nine hundred and twenty-eight
+929 is nine hundred and twenty-nine
+930 is nine hundred and thirty
+931 is nine hundred and thirty-one
+-932 is minus nine hundred and thirty-two
+-933 is minus nine hundred and thirty-three
+934 is nine hundred and thirty-four
+-935 is not nine hundred and thirty-five
+-936 is not nine hundred and thirty-six
+-937 is not nine hundred and thirty-seven
+-938 is not nine hundred and thirty-eight
+-939 is not nine hundred and thirty-nine
+-940 is minus nine hundred and forty
+-941 is minus nine hundred and forty-one
+942 is not minus nine hundred and forty-two
+-943 is not nine hundred and forty-three
+-944 is minus nine hundred and forty-four
+-945 is minus nine hundred and forty-five
+-946 is minus nine hundred and forty-six
+-947 is minus nine hundred and forty-seven
+948 is not minus nine hundred and forty-eight
+-949 is not nine hundred and forty-nine
+950 is not minus nine hundred and fifty
+951 is nine hundred and fifty-one
+952 is not minus nine hundred and fifty-two
+953 is nine hundred and fifty-three
+-954 is minus nine hundred and fifty-four
+955 is nine hundred and fifty-five
+-956 is minus nine hundred and fifty-six
+957 is not minus nine hundred and fifty-seven
+-958 is minus nine hundred and fifty-eight
+959 is not minus nine hundred and fifty-nine
+960 is not minus nine hundred and sixty
+961 is not minus nine hundred and sixty-one
+-962 is not nine hundred and sixty-two
+-963 is not nine hundred and sixty-three
+-964 is minus nine hundred and sixty-four
+-965 is not nine hundred and sixty-five
+966 is not minus nine hundred and sixty-six
+967 is nine hundred and sixty-seven
+968 is nine hundred and sixty-eight
+-969 is not nine hundred and sixty-nine
+970 is not minus nine hundred and seventy
+-971 is minus nine hundred and seventy-one
+972 is nine hundred and seventy-two
+973 is nine hundred and seventy-three
+-974 is not nine hundred and seventy-four
+975 is not minus nine hundred and seventy-five
+-976 is not nine hundred and seventy-six
+-977 is not nine hundred and seventy-seven
+-978 is not nine hundred and seventy-eight
+979 is nine hundred and seventy-nine
+980 is not minus nine hundred and eighty
+-981 is not nine hundred and eighty-one
+-982 is minus nine hundred and eighty-two
+983 is nine hundred and eighty-three
+-984 is minus nine hundred and eighty-four
+985 is not minus nine hundred and eighty-five
+-986 is not nine hundred and eighty-six
+-987 is not nine hundred and eighty-seven
+-988 is not nine hundred and eighty-eight
+989 is not minus nine hundred and eighty-nine
+990 is nine hundred and ninety
+991 is nine hundred and ninety-one
+992 is nine hundred and ninety-two
+-993 is not nine hundred and ninety-three
+-994 is minus nine hundred and ninety-four
+995 is nine hundred and ninety-five
+996 is nine hundred and ninety-six
+-997 is minus nine hundred and ninety-seven
+998 is nine hundred and ninety-eight
+-999 is minus nine hundred and ninety-nine
+0 + 0 = 0, zero plus zero is zero
+0 - 0 = 0, zero minus zero is zero
+0 + 1 = 1, zero plus one is one
+0 - 1 = -1, zero minus one is minus one
+0 + 2 = 2, zero plus two is two
+0 - 2 = -2, zero minus two is minus two
+0 + 3 = 3, zero plus three is three
+0 - 3 = -3, zero minus three is minus three
+0 + 4 = 4, zero plus four is four
+0 - 4 = -4, zero minus four is minus four
+0 + 5 = 5, zero plus five is five
+0 - 5 = -5, zero minus five is minus five
+0 + 6 = 6, zero plus six is six
+0 - 6 = -6, zero minus six is minus six
+0 + 7 = 7, zero plus seven is seven
+0 - 7 = -7, zero minus seven is minus seven
+0 + 8 = 8, zero plus eight is eight
+0 - 8 = -8, zero minus eight is minus eight
+0 + 9 = 9, zero plus nine is nine
+0 - 9 = -9, zero minus nine is minus nine
+1 + 0 = 1, one plus zero is one
+1 - 0 = 1, one minus zero is one
+1 + 1 = 2, one plus one is two
+1 - 1 = 0, one minus one is zero
+1 + 2 = 3, one plus two is three
+1 - 2 = -1, one minus two is minus one
+1 + 3 = 4, one plus three is four
+1 - 3 = -2, one minus three is minus two
+1 + 4 = 5, one plus four is five
+1 - 4 = -3, one minus four is minus three
+1 + 5 = 6, one plus five is six
+1 - 5 = -4, one minus five is minus four
+1 + 6 = 7, one plus six is seven
+1 - 6 = -5, one minus six is minus five
+1 + 7 = 8, one plus seven is eight
+1 - 7 = -6, one minus seven is minus six
+1 + 8 = 9, one plus eight is nine
+1 - 8 = -7, one minus eight is minus seven
+1 + 9 = 10, one plus nine is ten
+1 - 9 = -8, one minus nine is minus eight
+2 + 0 = 2, two plus zero is two
+2 - 0 = 2, two minus zero is two
+2 + 1 = 3, two plus one is three
+2 - 1 = 1, two minus one is one
+2 + 2 = 4, two plus two is four
+2 - 2 = 0, two minus two is zero
+2 + 3 = 5, two plus three is five
+2 - 3 = -1, two minus three is minus one
+2 + 4 = 6, two plus four is six
+2 - 4 = -2, two minus four is minus two
+2 + 5 = 7, two plus five is seven
+2 - 5 = -3, two minus five is minus three
+2 + 6 = 8, two plus six is eight
+2 - 6 = -4, two minus six is minus four
+2 + 7 = 9, two plus seven is nine
+2 - 7 = -5, two minus seven is minus five
+2 + 8 = 10, two plus eight is ten
+2 - 8 = -6, two minus eight is minus six
+2 + 9 = 11, two plus nine is eleven
+2 - 9 = -7, two minus nine is minus seven
+3 + 0 = 3, three plus zero is three
+3 - 0 = 3, three minus zero is three
+3 + 1 = 4, three plus one is four
+3 - 1 = 2, three minus one is two
+3 + 2 = 5, three plus two is five
+3 - 2 = 1, three minus two is one
+3 + 3 = 6, three plus three is six
+3 - 3 = 0, three minus three is zero
+3 + 4 = 7, three plus four is seven
+3 - 4 = -1, three minus four is minus one
+3 + 5 = 8, three plus five is eight
+3 - 5 = -2, three minus five is minus two
+3 + 6 = 9, three plus six is nine
+3 - 6 = -3, three minus six is minus three
+3 + 7 = 10, three plus seven is ten
+3 - 7 = -4, three minus seven is minus four
+3 + 8 = 11, three plus eight is eleven
+3 - 8 = -5, three minus eight is minus five
+3 + 9 = 12, three plus nine is twelve
+3 - 9 = -6, three minus nine is minus six
+4 + 0 = 4, four plus zero is four
+4 - 0 = 4, four minus zero is four
+4 + 1 = 5, four plus one is five
+4 - 1 = 3, four minus one is three
+4 + 2 = 6, four plus two is six
+4 - 2 = 2, four minus two is two
+4 + 3 = 7, four plus three is seven
+4 - 3 = 1, four minus three is one
+4 + 4 = 8, four plus four is eight
+4 - 4 = 0, four minus four is zero
+4 + 5 = 9, four plus five is nine
+4 - 5 = -1, four minus five is minus one
+4 + 6 = 10, four plus six is ten
+4 - 6 = -2, four minus six is minus two
+4 + 7 = 11, four plus seven is eleven
+4 - 7 = -3, four minus seven is minus three
+4 + 8 = 12, four plus eight is twelve
+4 - 8 = -4, four minus eight is minus four
+4 + 9 = 13, four plus nine is thirteen
+4 - 9 = -5, four minus nine is minus five
+5 + 0 = 5, five plus zero is five
+5 - 0 = 5, five minus zero is five
+5 + 1 = 6, five plus one is six
+5 - 1 = 4, five minus one is four
+5 + 2 = 7, five plus two is seven
+5 - 2 = 3, five minus two is three
+5 + 3 = 8, five plus three is eight
+5 - 3 = 2, five minus three is two
+5 + 4 = 9, five plus four is nine
+5 - 4 = 1, five minus four is one
+5 + 5 = 10, five plus five is ten
+5 - 5 = 0, five minus five is zero
+5 + 6 = 11, five plus six is eleven
+5 - 6 = -1, five minus six is minus one
+5 + 7 = 12, five plus seven is twelve
+5 - 7 = -2, five minus seven is minus two
+5 + 8 = 13, five plus eight is thirteen
+5 - 8 = -3, five minus eight is minus three
+5 + 9 = 14, five plus nine is fourteen
+5 - 9 = -4, five minus nine is minus four
+6 + 0 = 6, six plus zero is six
+6 - 0 = 6, six minus zero is six
+6 + 1 = 7, six plus one is seven
+6 - 1 = 5, six minus one is five
+6 + 2 = 8, six plus two is eight
+6 - 2 = 4, six minus two is four
+6 + 3 = 9, six plus three is nine
+6 - 3 = 3, six minus three is three
+6 + 4 = 10, six plus four is ten
+6 - 4 = 2, six minus four is two
+6 + 5 = 11, six plus five is eleven
+6 - 5 = 1, six minus five is one
+6 + 6 = 12, six plus six is twelve
+6 - 6 = 0, six minus six is zero
+6 + 7 = 13, six plus seven is thirteen
+6 - 7 = -1, six minus seven is minus one
+6 + 8 = 14, six plus eight is fourteen
+6 - 8 = -2, six minus eight is minus two
+6 + 9 = 15, six plus nine is fifteen
+6 - 9 = -3, six minus nine is minus three
+7 + 0 = 7, seven plus zero is seven
+7 - 0 = 7, seven minus zero is seven
+7 + 1 = 8, seven plus one is eight
+7 - 1 = 6, seven minus one is six
+7 + 2 = 9, seven plus two is nine
+7 - 2 = 5, seven minus two is five
+7 + 3 = 10, seven plus three is ten
+7 - 3 = 4, seven minus three is four
+7 + 4 = 11, seven plus four is eleven
+7 - 4 = 3, seven minus four is three
+7 + 5 = 12, seven plus five is twelve
+7 - 5 = 2, seven minus five is two
+7 + 6 = 13, seven plus six is thirteen
+7 - 6 = 1, seven minus six is one
+7 + 7 = 14, seven plus seven is fourteen
+7 - 7 = 0, seven minus seven is zero
+7 + 8 = 15, seven plus eight is fifteen
+7 - 8 = -1, seven minus eight is minus one
+7 + 9 = 16, seven plus nine is sixteen
+7 - 9 = -2, seven minus nine is minus two
+8 + 0 = 8, eight plus zero is eight
+8 - 0 = 8, eight minus zero is eight
+8 + 1 = 9, eight plus one is nine
+8 - 1 = 7, eight minus one is seven
+8 + 2 = 10, eight plus two is ten
+8 - 2 = 6, eight minus two is six
+8 + 3 = 11, eight plus three is eleven
+8 - 3 = 5, eight minus three is five
+8 + 4 = 12, eight plus four is twelve
+8 - 4 = 4, eight minus four is four
+8 + 5 = 13, eight plus five is thirteen
+8 - 5 = 3, eight minus five is three
+8 + 6 = 14, eight plus six is fourteen
+8 - 6 = 2, eight minus six is two
+8 + 7 = 15, eight plus seven is fifteen
+8 - 7 = 1, eight minus seven is one
+8 + 8 = 16, eight plus eight is sixteen
+8 - 8 = 0, eight minus eight is zero
+8 + 9 = 17, eight plus nine is seventeen
+8 - 9 = -1, eight minus nine is minus one
+9 + 0 = 9, nine plus zero is nine
+9 - 0 = 9, nine minus zero is nine
+9 + 1 = 10, nine plus one is ten
+9 - 1 = 8, nine minus one is eight
+9 + 2 = 11, nine plus two is eleven
+9 - 2 = 7, nine minus two is seven
+9 + 3 = 12, nine plus three is twelve
+9 - 3 = 6, nine minus three is six
+9 + 4 = 13, nine plus four is thirteen
+9 - 4 = 5, nine minus four is five
+9 + 5 = 14, nine plus five is fourteen
+9 - 5 = 4, nine minus five is four
+9 + 6 = 15, nine plus six is fifteen
+9 - 6 = 3, nine minus six is three
+9 + 7 = 16, nine plus seven is sixteen
+9 - 7 = 2, nine minus seven is two
+9 + 8 = 17, nine plus eight is seventeen
+9 - 8 = 1, nine minus eight is one
+9 + 9 = 18, nine plus nine is eighteen
+9 - 9 = 0, nine minus nine is zero
+10 + 5 = 15, ten plus five is fifteen
+10 - 5 = 5, ten minus five is five
+11 + 7 = 18, eleven plus seven is eighteen
+11 - 7 = 4, eleven minus seven is four
+12 + 6 = 18, twelve plus six is eighteen
+12 - 6 = 6, twelve minus six is six
+13 + 7 = 20, thirteen plus seven is twenty
+13 - 7 = 6, thirteen minus seven is six
+14 + 4 = 18, fourteen plus four is eighteen
+14 - 4 = 10, fourteen minus four is ten
+15 + 5 = 20, fifteen plus five is twenty
+15 - 5 = 10, fifteen minus five is ten
+16 + 3 = 19, sixteen plus three is nineteen
+16 - 3 = 13, sixteen minus three is thirteen
+17 + 9 = 26, seventeen plus nine is twenty-six
+17 - 9 = 8, seventeen minus nine is eight
+18 + 0 = 18, eighteen plus zero is eighteen
+18 - 0 = 18, eighteen minus zero is eighteen
+19 + 6 = 25, nineteen plus six is twenty-five
+19 - 6 = 13, nineteen minus six is thirteen
+20 + 8 = 28, twenty plus eight is twenty-eight
+20 - 8 = 12, twenty minus eight is twelve
+21 + 4 = 25, twenty-one plus four is twenty-five
+21 - 4 = 17, twenty-one minus four is seventeen
+22 + 8 = 30, twenty-two plus eight is thirty
+22 - 8 = 14, twenty-two minus eight is fourteen
+23 + 9 = 32, twenty-three plus nine is thirty-two
+23 - 9 = 14, twenty-three minus nine is fourteen
+24 + 4 = 28, twenty-four plus four is twenty-eight
+24 - 4 = 20, twenty-four minus four is twenty
+25 + 0 = 25, twenty-five plus zero is twenty-five
+25 - 0 = 25, twenty-five minus zero is twenty-five
+26 + 6 = 32, twenty-six plus six is thirty-two
+26 - 6 = 20, twenty-six minus six is twenty
+27 + 7 = 34, twenty-seven plus seven is thirty-four
+27 - 7 = 20, twenty-seven minus seven is twenty
+28 + 9 = 37, twenty-eight plus nine is thirty-seven
+28 - 9 = 19, twenty-eight minus nine is nineteen
+29 + 0 = 29, twenty-nine plus zero is twenty-nine
+29 - 0 = 29, twenty-nine minus zero is twenty-nine
+30 + 4 = 34, thirty plus four is thirty-four
+30 - 4 = 26, thirty minus four is twenty-six
+31 + 4 = 35, thirty-one plus four is thirty-five
+31 - 4 = 27, thirty-one minus four is twenty-seven
+32 + 4 = 36, thirty-two plus four is thirty-six
+32 - 4 = 28, thirty-two minus four is twenty-eight
+33 + 7 = 40, thirty-three plus seven is forty
+33 - 7 = 26, thirty-three minus seven is twenty-six
+34 + 6 = 40, thirty-four plus six is forty
+34 - 6 = 28, thirty-four minus six is twenty-eight
+35 + 7 = 42, thirty-five plus seven is forty-two
+35 - 7 = 28, thirty-five minus seven is twenty-eight
+36 + 7 = 43, thirty-six plus seven is forty-three
+36 - 7 = 29, thirty-six minus seven is twenty-nine
+37 + 7 = 44, thirty-seven plus seven is forty-four
+37 - 7 = 30, thirty-seven minus seven is thirty
+38 + 4 = 42, thirty-eight plus four is forty-two
+38 - 4 = 34, thirty-eight minus four is thirty-four
+39 + 5 = 44, thirty-nine plus five is forty-four
+39 - 5 = 34, thirty-nine minus five is thirty-four
+40 + 9 = 49, forty plus nine is forty-nine
+40 - 9 = 31, forty minus nine is thirty-one
+41 + 2 = 43, forty-one plus two is forty-three
+41 - 2 = 39, forty-one minus two is thirty-nine
+42 + 0 = 42, forty-two plus zero is forty-two
+42 - 0 = 42, forty-two minus zero is forty-two
+43 + 6 = 49, forty-three plus six is forty-nine
+43 - 6 = 37, forty-three minus six is thirty-seven
+44 + 9 = 53, forty-four plus nine is fifty-three
+44 - 9 = 35, forty-four minus nine is thirty-five
+45 + 1 = 46, forty-five plus one is forty-six
+45 - 1 = 44, forty-five minus one is forty-four
+46 + 5 = 51, forty-six plus five is fifty-one
+46 - 5 = 41, forty-six minus five is forty-one
+47 + 0 = 47, forty-seven plus zero is forty-seven
+47 - 0 = 47, forty-seven minus zero is forty-seven
+48 + 3 = 51, forty-eight plus three is fifty-one
+48 - 3 = 45, forty-eight minus three is forty-five
+49 + 9 = 58, forty-nine plus nine is fifty-eight
+49 - 9 = 40, forty-nine minus nine is forty
+50 + 0 = 50, fifty plus zero is fifty
+50 - 0 = 50, fifty minus zero is fifty
+51 + 0 = 51, fifty-one plus zero is fifty-one
+51 - 0 = 51, fifty-one minus zero is fifty-one
+52 + 0 = 52, fifty-two plus zero is fifty-two
+52 - 0 = 52, fifty-two minus zero is fifty-two
+53 + 1 = 54, fifty-three plus one is fifty-four
+53 - 1 = 52, fifty-three minus one is fifty-two
+54 + 2 = 56, fifty-four plus two is fifty-six
+54 - 2 = 52, fifty-four minus two is fifty-two
+55 + 1 = 56, fifty-five plus one is fifty-six
+55 - 1 = 54, fifty-five minus one is fifty-four
+56 + 0 = 56, fifty-six plus zero is fifty-six
+56 - 0 = 56, fifty-six minus zero is fifty-six
+57 + 3 = 60, fifty-seven plus three is sixty
+57 - 3 = 54, fifty-seven minus three is fifty-four
+58 + 2 = 60, fifty-eight plus two is sixty
+58 - 2 = 56, fifty-eight minus two is fifty-six
+59 + 1 = 60, fifty-nine plus one is sixty
+59 - 1 = 58, fifty-nine minus one is fifty-eight
+60 + 2 = 62, sixty plus two is sixty-two
+60 - 2 = 58, sixty minus two is fifty-eight
+61 + 8 = 69, sixty-one plus eight is sixty-nine
+61 - 8 = 53, sixty-one minus eight is fifty-three
+62 + 9 = 71, sixty-two plus nine is seventy-one
+62 - 9 = 53, sixty-two minus nine is fifty-three
+63 + 7 = 70, sixty-three plus seven is seventy
+63 - 7 = 56, sixty-three minus seven is fifty-six
+64 + 3 = 67, sixty-four plus three is sixty-seven
+64 - 3 = 61, sixty-four minus three is sixty-one
+65 + 5 = 70, sixty-five plus five is seventy
+65 - 5 = 60, sixty-five minus five is sixty
+66 + 4 = 70, sixty-six plus four is seventy
+66 - 4 = 62, sixty-six minus four is sixty-two
+67 + 9 = 76, sixty-seven plus nine is seventy-six
+67 - 9 = 58, sixty-seven minus nine is fifty-eight
+68 + 8 = 76, sixty-eight plus eight is seventy-six
+68 - 8 = 60, sixty-eight minus eight is sixty
+69 + 2 = 71, sixty-nine plus two is seventy-one
+69 - 2 = 67, sixty-nine minus two is sixty-seven
+70 + 5 = 75, seventy plus five is seventy-five
+70 - 5 = 65, seventy minus five is sixty-five
+71 + 0 = 71, seventy-one plus zero is seventy-one
+71 - 0 = 71, seventy-one minus zero is seventy-one
+72 + 7 = 79, seventy-two plus seven is seventy-nine
+72 - 7 = 65, seventy-two minus seven is sixty-five
+73 + 3 = 76, seventy-three plus three is seventy-six
+73 - 3 = 70, seventy-three minus three is seventy
+74 + 5 = 79, seventy-four plus five is seventy-nine
+74 - 5 = 69, seventy-four minus five is sixty-nine
+75 + 7 = 82, seventy-five plus seven is eighty-two
+75 - 7 = 68, seventy-five minus seven is sixty-eight
+76 + 7 = 83, seventy-six plus seven is eighty-three
+76 - 7 = 69, seventy-six minus seven is sixty-nine
+77 + 7 = 84, seventy-seven plus seven is eighty-four
+77 - 7 = 70, seventy-seven minus seven is seventy
+78 + 7 = 85, seventy-eight plus seven is eighty-five
+78 - 7 = 71, seventy-eight minus seven is seventy-one
+79 + 0 = 79, seventy-nine plus zero is seventy-nine
+79 - 0 = 79, seventy-nine minus zero is seventy-nine
+80 + 1 = 81, eighty plus one is eighty-one
+80 - 1 = 79, eighty minus one is seventy-nine
+81 + 7 = 88, eighty-one plus seven is eighty-eight
+81 - 7 = 74, eighty-one minus seven is seventy-four
+82 + 9 = 91, eighty-two plus nine is ninety-one
+82 - 9 = 73, eighty-two minus nine is seventy-three
+83 + 5 = 88, eighty-three plus five is eighty-eight
+83 - 5 = 78, eighty-three minus five is seventy-eight
+84 + 1 = 85, eighty-four plus one is eighty-five
+84 - 1 = 83, eighty-four minus one is eighty-three
+85 + 4 = 89, eighty-five plus four is eighty-nine
+85 - 4 = 81, eighty-five minus four is eighty-one
+86 + 1 = 87, eighty-six plus one is eighty-seven
+86 - 1 = 85, eighty-six minus one is eighty-five
+87 + 3 = 90, eighty-seven plus three is ninety
+87 - 3 = 84, eighty-seven minus three is eighty-four
+88 + 7 = 95, eighty-eight plus seven is ninety-five
+88 - 7 = 81, eighty-eight minus seven is eighty-one
+89 + 2 = 91, eighty-nine plus two is ninety-one
+89 - 2 = 87, eighty-nine minus two is eighty-seven
+90 + 0 = 90, ninety plus zero is ninety
+90 - 0 = 90, ninety minus zero is ninety
+91 + 5 = 96, ninety-one plus five is ninety-six
+91 - 5 = 86, ninety-one minus five is eighty-six
+92 + 2 = 94, ninety-two plus two is ninety-four
+92 - 2 = 90, ninety-two minus two is ninety
+93 + 9 = 102, ninety-three plus nine is one hundred and two
+93 - 9 = 84, ninety-three minus nine is eighty-four
+94 + 5 = 99, ninety-four plus five is ninety-nine
+94 - 5 = 89, ninety-four minus five is eighty-nine
+95 + 0 = 95, ninety-five plus zero is ninety-five
+95 - 0 = 95, ninety-five minus zero is ninety-five
+96 + 8 = 104, ninety-six plus eight is one hundred and four
+96 - 8 = 88, ninety-six minus eight is eighty-eight
+97 + 0 = 97, ninety-seven plus zero is ninety-seven
+97 - 0 = 97, ninety-seven minus zero is ninety-seven
+98 + 7 = 105, ninety-eight plus seven is one hundred and five
+98 - 7 = 91, ninety-eight minus seven is ninety-one
+99 + 8 = 107, ninety-nine plus eight is one hundred and seven
+99 - 8 = 91, ninety-nine minus eight is ninety-one
+10 + 51 = 61, ten plus fifty-one is sixty-one
+10 - 51 = -41, ten minus fifty-one is minus forty-one
+11 + 73 = 84, eleven plus seventy-three is eighty-four
+11 - 73 = -62, eleven minus seventy-three is minus sixty-two
+12 + 58 = 70, twelve plus fifty-eight is seventy
+12 - 58 = -46, twelve minus fifty-eight is minus forty-six
+13 + 40 = 53, thirteen plus forty is fifty-three
+13 - 40 = -27, thirteen minus forty is minus twenty-seven
+14 + 90 = 104, fourteen plus ninety is one hundred and four
+14 - 90 = -76, fourteen minus ninety is minus seventy-six
+15 + 80 = 95, fifteen plus eighty is ninety-five
+15 - 80 = -65, fifteen minus eighty is minus sixty-five
+16 + 60 = 76, sixteen plus sixty is seventy-six
+16 - 60 = -44, sixteen minus sixty is minus forty-four
+17 + 81 = 98, seventeen plus eighty-one is ninety-eight
+17 - 81 = -64, seventeen minus eighty-one is minus sixty-four
+18 + 85 = 103, eighteen plus eighty-five is one hundred and three
+18 - 85 = -67, eighteen minus eighty-five is minus sixty-seven
+19 + 15 = 34, nineteen plus fifteen is thirty-four
+19 - 15 = 4, nineteen minus fifteen is four
+20 + 61 = 81, twenty plus sixty-one is eighty-one
+20 - 61 = -41, twenty minus sixty-one is minus forty-one
+21 + 59 = 80, twenty-one plus fifty-nine is eighty
+21 - 59 = -38, twenty-one minus fifty-nine is minus thirty-eight
+22 + 29 = 51, twenty-two plus twenty-nine is fifty-one
+22 - 29 = -7, twenty-two minus twenty-nine is minus seven
+23 + 10 = 33, twenty-three plus ten is thirty-three
+23 - 10 = 13, twenty-three minus ten is thirteen
+24 + 18 = 42, twenty-four plus eighteen is forty-two
+24 - 18 = 6, twenty-four minus eighteen is six
+25 + 87 = 112, twenty-five plus eighty-seven is one hundred and twelve
+25 - 87 = -62, twenty-five minus eighty-seven is minus sixty-two
+26 + 18 = 44, twenty-six plus eighteen is forty-four
+26 - 18 = 8, twenty-six minus eighteen is eight
+27 + 77 = 104, twenty-seven plus seventy-seven is one hundred and four
+27 - 77 = -50, twenty-seven minus seventy-seven is minus fifty
+28 + 82 = 110, twenty-eight plus eighty-two is one hundred and ten
+28 - 82 = -54, twenty-eight minus eighty-two is minus fifty-four
+29 + 55 = 84, twenty-nine plus fifty-five is eighty-four
+29 - 55 = -26, twenty-nine minus fifty-five is minus twenty-six
+30 + 62 = 92, thirty plus sixty-two is ninety-two
+30 - 62 = -32, thirty minus sixty-two is minus thirty-two
+31 + 71 = 102, thirty-one plus seventy-one is one hundred and two
+31 - 71 = -40, thirty-one minus seventy-one is minus forty
+32 + 29 = 61, thirty-two plus twenty-nine is sixty-one
+32 - 29 = 3, thirty-two minus twenty-nine is three
+33 + 62 = 95, thirty-three plus sixty-two is ninety-five
+33 - 62 = -29, thirty-three minus sixty-two is minus twenty-nine
+34 + 43 = 77, thirty-four plus forty-three is seventy-seven
+34 - 43 = -9, thirty-four minus forty-three is minus nine
+35 + 21 = 56, thirty-five plus twenty-one is fifty-six
+35 - 21 = 14, thirty-five minus twenty-one is fourteen
+36 + 26 = 62, thirty-six plus twenty-six is sixty-two
+36 - 26 = 10, thirty-six minus twenty-six is ten
+37 + 41 = 78, thirty-seven plus forty-one is seventy-eight
+37 - 41 = -4, thirty-seven minus forty-one is minus four
+38 + 32 = 70, thirty-eight plus thirty-two is seventy
+38 - 32 = 6, thirty-eight minus thirty-two is six
+39 + 18 = 57, thirty-nine plus eighteen is fifty-seven
+39 - 18 = 21, thirty-nine minus eighteen is twenty-one
+40 + 25 = 65, forty plus twenty-five is sixty-five
+40 - 25 = 15, forty minus twenty-five is fifteen
+41 + 44 = 85, forty-one plus forty-four is eighty-five
+41 - 44 = -3, forty-one minus forty-four is minus three
+42 + 73 = 115, forty-two plus seventy-three is one hundred and fifteen
+42 - 73 = -31, forty-two minus seventy-three is minus thirty-one
+43 + 54 = 97, forty-three plus fifty-four is ninety-seven
+43 - 54 = -11, forty-three minus fifty-four is minus eleven
+44 + 76 = 120, forty-four plus seventy-six is one hundred and twenty
+44 - 76 = -32, forty-four minus seventy-six is minus thirty-two
+45 + 17 = 62, forty-five plus seventeen is sixty-two
+45 - 17 = 28, forty-five minus seventeen is twenty-eight
+46 + 46 = 92, forty-six plus forty-six is ninety-two
+46 - 46 = 0, forty-six minus forty-six is zero
+47 + 54 = 101, forty-seven plus fifty-four is one hundred and one
+47 - 54 = -7, forty-seven minus fifty-four is minus seven
+48 + 29 = 77, forty-eight plus twenty-nine is seventy-seven
+48 - 29 = 19, forty-eight minus twenty-nine is nineteen
+49 + 50 = 99, forty-nine plus fifty is ninety-nine
+49 - 50 = -1, forty-nine minus fifty is minus one
+50 + 36 = 86, fifty plus thirty-six is eighty-six
+50 - 36 = 14, fifty minus thirty-six is fourteen
+51 + 59 = 110, fifty-one plus fifty-nine is one hundred and ten
+51 - 59 = -8, fifty-one minus fifty-nine is minus eight
+52 + 23 = 75, fifty-two plus twenty-three is seventy-five
+52 - 23 = 29, fifty-two minus twenty-three is twenty-nine
+53 + 46 = 99, fifty-three plus forty-six is ninety-nine
+53 - 46 = 7, fifty-three minus forty-six is seven
+54 + 70 = 124, fifty-four plus seventy is one hundred and twenty-four
+54 - 70 = -16, fifty-four minus seventy is minus sixteen
+55 + 78 = 133, fifty-five plus seventy-eight is one hundred and thirty-three
+55 - 78 = -23, fifty-five minus seventy-eight is minus twenty-three
+56 + 97 = 153, fifty-six plus ninety-seven is one hundred and fifty-three
+56 - 97 = -41, fifty-six minus ninety-seven is minus forty-one
+57 + 49 = 106, fifty-seven plus forty-nine is one hundred and six
+57 - 49 = 8, fifty-seven minus forty-nine is eight
+58 + 82 = 140, fifty-eight plus eighty-two is one hundred and forty
+58 - 82 = -24, fifty-eight minus eighty-two is minus twenty-four
+59 + 58 = 117, fifty-nine plus fifty-eight is one hundred and seventeen
+59 - 58 = 1, fifty-nine minus fifty-eight is one
+60 + 94 = 154, sixty plus ninety-four is one hundred and fifty-four
+60 - 94 = -34, sixty minus ninety-four is minus thirty-four
+61 + 56 = 117, sixty-one plus fifty-six is one hundred and seventeen
+61 - 56 = 5, sixty-one minus fifty-six is five
+62 + 38 = 100, sixty-two plus thirty-eight is one hundred
+62 - 38 = 24, sixty-two minus thirty-eight is twenty-four
+63 + 94 = 157, sixty-three plus ninety-four is one hundred and fifty-seven
+63 - 94 = -31, sixty-three minus ninety-four is minus thirty-one
+64 + 93 = 157, sixty-four plus ninety-three is one hundred and fifty-seven
+64 - 93 = -29, sixty-four minus ninety-three is minus twenty-nine
+65 + 96 = 161, sixty-five plus ninety-six is one hundred and sixty-one
+65 - 96 = -31, sixty-five minus ninety-six is minus thirty-one
+66 + 28 = 94, sixty-six plus twenty-eight is ninety-four
+66 - 28 = 38, sixty-six minus twenty-eight is thirty-eight
+67 + 59 = 126, sixty-seven plus fifty-nine is one hundred and twenty-six
+67 - 59 = 8, sixty-seven minus fifty-nine is eight
+68 + 45 = 113, sixty-eight plus forty-five is one hundred and thirteen
+68 - 45 = 23, sixty-eight minus forty-five is twenty-three
+69 + 96 = 165, sixty-nine plus ninety-six is one hundred and sixty-five
+69 - 96 = -27, sixty-nine minus ninety-six is minus twenty-seven
+70 + 78 = 148, seventy plus seventy-eight is one hundred and forty-eight
+70 - 78 = -8, seventy minus seventy-eight is minus eight
+71 + 57 = 128, seventy-one plus fifty-seven is one hundred and twenty-eight
+71 - 57 = 14, seventy-one minus fifty-seven is fourteen
+72 + 76 = 148, seventy-two plus seventy-six is one hundred and forty-eight
+72 - 76 = -4, seventy-two minus seventy-six is minus four
+73 + 65 = 138, seventy-three plus sixty-five is one hundred and thirty-eight
+73 - 65 = 8, seventy-three minus sixty-five is eight
+74 + 87 = 161, seventy-four plus eighty-seven is one hundred and sixty-one
+74 - 87 = -13, seventy-four minus eighty-seven is minus thirteen
+75 + 40 = 115, seventy-five plus forty is one hundred and fifteen
+75 - 40 = 35, seventy-five minus forty is thirty-five
+76 + 65 = 141, seventy-six plus sixty-five is one hundred and forty-one
+76 - 65 = 11, seventy-six minus sixty-five is eleven
+77 + 15 = 92, seventy-seven plus fifteen is ninety-two
+77 - 15 = 62, seventy-seven minus fifteen is sixty-two
+78 + 30 = 108, seventy-eight plus thirty is one hundred and eight
+78 - 30 = 48, seventy-eight minus thirty is forty-eight
+79 + 84 = 163, seventy-nine plus eighty-four is one hundred and sixty-three
+79 - 84 = -5, seventy-nine minus eighty-four is minus five
+80 + 50 = 130, eighty plus fifty is one hundred and thirty
+80 - 50 = 30, eighty minus fifty is thirty
+81 + 67 = 148, eighty-one plus sixty-seven is one hundred and forty-eight
+81 - 67 = 14, eighty-one minus sixty-seven is fourteen
+82 + 74 = 156, eighty-two plus seventy-four is one hundred and fifty-six
+82 - 74 = 8, eighty-two minus seventy-four is eight
+83 + 85 = 168, eighty-three plus eighty-five is one hundred and sixty-eight
+83 - 85 = -2, eighty-three minus eighty-five is minus two
+84 + 36 = 120, eighty-four plus thirty-six is one hundred and twenty
+84 - 36 = 48, eighty-four minus thirty-six is forty-eight
+85 + 91 = 176, eighty-five plus ninety-one is one hundred and seventy-six
+85 - 91 = -6, eighty-five minus ninety-one is minus six
+86 + 46 = 132, eighty-six plus forty-six is one hundred and thirty-two
+86 - 46 = 40, eighty-six minus forty-six is forty
+87 + 51 = 138, eighty-seven plus fifty-one is one hundred and thirty-eight
+87 - 51 = 36, eighty-seven minus fifty-one is thirty-six
+88 + 14 = 102, eighty-eight plus fourteen is one hundred and two
+88 - 14 = 74, eighty-eight minus fourteen is seventy-four
+89 + 77 = 166, eighty-nine plus seventy-seven is one hundred and sixty-six
+89 - 77 = 12, eighty-nine minus seventy-seven is twelve
+90 + 40 = 130, ninety plus forty is one hundred and thirty
+90 - 40 = 50, ninety minus forty is fifty
+91 + 54 = 145, ninety-one plus fifty-four is one hundred and forty-five
+91 - 54 = 37, ninety-one minus fifty-four is thirty-seven
+92 + 67 = 159, ninety-two plus sixty-seven is one hundred and fifty-nine
+92 - 67 = 25, ninety-two minus sixty-seven is twenty-five
+93 + 11 = 104, ninety-three plus eleven is one hundred and four
+93 - 11 = 82, ninety-three minus eleven is eighty-two
+94 + 86 = 180, ninety-four plus eighty-six is one hundred and eighty
+94 - 86 = 8, ninety-four minus eighty-six is eight
+95 + 75 = 170, ninety-five plus seventy-five is one hundred and seventy
+95 - 75 = 20, ninety-five minus seventy-five is twenty
+96 + 28 = 124, ninety-six plus twenty-eight is one hundred and twenty-four
+96 - 28 = 68, ninety-six minus twenty-eight is sixty-eight
+97 + 87 = 184, ninety-seven plus eighty-seven is one hundred and eighty-four
+97 - 87 = 10, ninety-seven minus eighty-seven is ten
+98 + 58 = 156, ninety-eight plus fifty-eight is one hundred and fifty-six
+98 - 58 = 40, ninety-eight minus fifty-eight is forty
+99 + 91 = 190, ninety-nine plus ninety-one is one hundred and ninety
+99 - 91 = 8, ninety-nine minus ninety-one is eight
+305 - 789 = -484, three hundred and five minus seven hundred and eighty-nine is minus four hundred and eighty-four
+720 - 941 = -221, seven hundred and twenty minus nine hundred and forty-one is minus two hundred and twenty-one
+538 - 899 = -361, five hundred and thirty-eight minus eight hundred and ninety-nine is minus three hundred and sixty-one
+403 - 196 = 207, four hundred and three minus one hundred and ninety-six is two hundred and seven
+879 + 910 = 1789, eight hundred and seventy-nine plus nine hundred and ten is one thousand, seven hundred and eighty-nine
+537 + 253 = 790, five hundred and thirty-seven plus two hundred and fifty-three is seven hundred and ninety
+594 + 763 = 1357, five hundred and ninety-four plus seven hundred and sixty-three is one thousand, three hundred and fifty-seven
+517 + 880 = 1397, five hundred and seventeen plus eight hundred and eighty is one thousand, three hundred and ninety-seven
+134 + 293 = 427, one hundred and thirty-four plus two hundred and ninety-three is four hundred and twenty-seven
+698 + 553 = 1251, six hundred and ninety-eight plus five hundred and fifty-three is one thousand, two hundred and fifty-one
+226 + 656 = 882, two hundred and twenty-six plus six hundred and fifty-six is eight hundred and eighty-two
+282 - 382 = -100, two hundred and eighty-two minus three hundred and eighty-two is minus one hundred
+201 - 25 = 176, two hundred and one minus twenty-five is one hundred and seventy-six
+980 - 635 = 345, nine hundred and eighty minus six hundred and thirty-five is three hundred and forty-five
+426 + 108 = 534, four hundred and twenty-six plus one hundred and eight is five hundred and thirty-four
+471 - 82 = 389, four hundred and seventy-one minus eighty-two is three hundred and eighty-nine
+695 - 532 = 163, six hundred and ninety-five minus five hundred and thirty-two is one hundred and sixty-three
+785 - 572 = 213, seven hundred and eighty-five minus five hundred and seventy-two is two hundred and thirteen
+321 + 20 = 341, three hundred and twenty-one plus twenty is three hundred and forty-one
+680 + 118 = 798, six hundred and eighty plus one hundred and eighteen is seven hundred and ninety-eight
+159 + 982 = 1141, one hundred and fifty-nine plus nine hundred and eighty-two is one thousand, one hundred and forty-one
+544 + 186 = 730, five hundred and forty-four plus one hundred and eighty-six is seven hundred and thirty
+743 - 504 = 239, seven hundred and forty-three minus five hundred and four is two hundred and thirty-nine
+362 - 190 = 172, three hundred and sixty-two minus one hundred and ninety is one hundred and seventy-two
+601 - 471 = 130, six hundred and one minus four hundred and seventy-one is one hundred and thirty
+109 - 103 = 6, one hundred and nine minus one hundred and three is six
+902 + 241 = 1143, nine hundred and two plus two hundred and forty-one is one thousand, one hundred and forty-three
+816 - 398 = 418, eight hundred and sixteen minus three hundred and ninety-eight is four hundred and eighteen
+648 + 845 = 1493, six hundred and forty-eight plus eight hundred and forty-five is one thousand, four hundred and ninety-three
+612 + 962 = 1574, six hundred and twelve plus nine hundred and sixty-two is one thousand, five hundred and seventy-four
+540 + 289 = 829, five hundred and forty plus two hundred and eighty-nine is eight hundred and twenty-nine
+243 + 470 = 713, two hundred and forty-three plus four hundred and seventy is seven hundred and thirteen
+441 + 493 = 934, four hundred and forty-one plus four hundred and ninety-three is nine hundred and thirty-four
+137 - 233 = -96, one hundred and thirty-seven minus two hundred and thirty-three is minus ninety-six
+995 - 273 = 722, nine hundred and ninety-five minus two hundred and seventy-three is seven hundred and twenty-two
+401 - 452 = -51, four hundred and one minus four hundred and fifty-two is minus fifty-one
+818 - 364 = 454, eight hundred and eighteen minus three hundred and sixty-four is four hundred and fifty-four
+744 + 870 = 1614, seven hundred and forty-four plus eight hundred and seventy is one thousand, six hundred and fourteen
+643 - 884 = -241, six hundred and forty-three minus eight hundred and eighty-four is minus two hundred and forty-one
+475 + 418 = 893, four hundred and seventy-five plus four hundred and eighteen is eight hundred and ninety-three
+108 - 974 = -866, one hundred and eight minus nine hundred and seventy-four is minus eight hundred and sixty-six
+984 + 102 = 1086, nine hundred and eighty-four plus one hundred and two is one thousand and eighty-six
+280 - 427 = -147, two hundred and eighty minus four hundred and twenty-seven is minus one hundred and forty-seven
+132 + 755 = 887, one hundred and thirty-two plus seven hundred and fifty-five is eight hundred and eighty-seven
+809 + 454 = 1263, eight hundred and nine plus four hundred and fifty-four is one thousand, two hundred and sixty-three
+826 - 35 = 791, eight hundred and twenty-six minus thirty-five is seven hundred and ninety-one
+806 + 11 = 817, eight hundred and six plus eleven is eight hundred and seventeen
+501 + 799 = 1300, five hundred and one plus seven hundred and ninety-nine is one thousand, three hundred
+283 + 150 = 433, two hundred and eighty-three plus one hundred and fifty is four hundred and thirty-three
+842 - 405 = 437, eight hundred and forty-two minus four hundred and five is four hundred and thirty-seven
+822 + 368 = 1190, eight hundred and twenty-two plus three hundred and sixty-eight is one thousand, one hundred and ninety
+547 + 597 = 1144, five hundred and forty-seven plus five hundred and ninety-seven is one thousand, one hundred and forty-four
+609 - 587 = 22, six hundred and nine minus five hundred and eighty-seven is twenty-two
+994 + 314 = 1308, nine hundred and ninety-four plus three hundred and fourteen is one thousand, three hundred and eight
+405 + 61 = 466, four hundred and five plus sixty-one is four hundred and sixty-six
+488 - 954 = -466, four hundred and eighty-eight minus nine hundred and fifty-four is minus four hundred and sixty-six
+125 - 408 = -283, one hundred and twenty-five minus four hundred and eight is minus two hundred and eighty-three
+686 - 879 = -193, six hundred and eighty-six minus eight hundred and seventy-nine is minus one hundred and ninety-three
+182 + 740 = 922, one hundred and eighty-two plus seven hundred and forty is nine hundred and twenty-two
+831 - 352 = 479, eight hundred and thirty-one minus three hundred and fifty-two is four hundred and seventy-nine
+541 - 481 = 60, five hundred and forty-one minus four hundred and eighty-one is sixty
+624 - 207 = 417, six hundred and twenty-four minus two hundred and seven is four hundred and seventeen
+314 + 962 = 1276, three hundred and fourteen plus nine hundred and sixty-two is one thousand, two hundred and seventy-six
+305 + 536 = 841, three hundred and five plus five hundred and thirty-six is eight hundred and forty-one
+101 - 922 = -821, one hundred and one minus nine hundred and twenty-two is minus eight hundred and twenty-one
+812 - 156 = 656, eight hundred and twelve minus one hundred and fifty-six is six hundred and fifty-six
+889 + 450 = 1339, eight hundred and eighty-nine plus four hundred and fifty is one thousand, three hundred and thirty-nine
+638 - 349 = 289, six hundred and thirty-eight minus three hundred and forty-nine is two hundred and eighty-nine
+592 - 58 = 534, five hundred and ninety-two minus fifty-eight is five hundred and thirty-four
+537 + 475 = 1012, five hundred and thirty-seven plus four hundred and seventy-five is one thousand and twelve
+771 - 219 = 552, seven hundred and seventy-one minus two hundred and nineteen is five hundred and fifty-two
+516 + 288 = 804, five hundred and sixteen plus two hundred and eighty-eight is eight hundred and four
+874 - 510 = 364, eight hundred and seventy-four minus five hundred and ten is three hundred and sixty-four
+952 + 402 = 1354, nine hundred and fifty-two plus four hundred and two is one thousand, three hundred and fifty-four
+124 - 510 = -386, one hundred and twenty-four minus five hundred and ten is minus three hundred and eighty-six
+730 - 277 = 453, seven hundred and thirty minus two hundred and seventy-seven is four hundred and fifty-three
+772 + 623 = 1395, seven hundred and seventy-two plus six hundred and twenty-three is one thousand, three hundred and ninety-five
+125 - 475 = -350, one hundred and twenty-five minus four hundred and seventy-five is minus three hundred and fifty
+232 - 748 = -516, two hundred and thirty-two minus seven hundred and forty-eight is minus five hundred and sixteen
+850 + 971 = 1821, eight hundred and fifty plus nine hundred and seventy-one is one thousand, eight hundred and twenty-one
+153 - 720 = -567, one hundred and fifty-three minus seven hundred and twenty is minus five hundred and sixty-seven
+675 - 894 = -219, six hundred and seventy-five minus eight hundred and ninety-four is minus two hundred and nineteen
+898 + 423 = 1321, eight hundred and ninety-eight plus four hundred and twenty-three is one thousand, three hundred and twenty-one
+356 + 934 = 1290, three hundred and fifty-six plus nine hundred and thirty-four is one thousand, two hundred and ninety
+673 + 916 = 1589, six hundred and seventy-three plus nine hundred and sixteen is one thousand, five hundred and eighty-nine
+404 - 562 = -158, four hundred and four minus five hundred and sixty-two is minus one hundred and fifty-eight
+872 - 666 = 206, eight hundred and seventy-two minus six hundred and sixty-six is two hundred and six
+760 + 4 = 764, seven hundred and sixty plus four is seven hundred and sixty-four
+122 - 20 = 102, one hundred and twenty-two minus twenty is one hundred and two
+962 - 979 = -17, nine hundred and sixty-two minus nine hundred and seventy-nine is minus seventeen
+756 - 741 = 15, seven hundred and fifty-six minus seven hundred and forty-one is fifteen
+337 + 7 = 344, three hundred and thirty-seven plus seven is three hundred and forty-four
+875 - 180 = 695, eight hundred and seventy-five minus one hundred and eighty is six hundred and ninety-five
+808 + 404 = 1212, eight hundred and eight plus four hundred and four is one thousand, two hundred and twelve
+578 + 860 = 1438, five hundred and seventy-eight plus eight hundred and sixty is one thousand, four hundred and thirty-eight
+698 + 11 = 709, six hundred and ninety-eight plus eleven is seven hundred and nine
+979 - 268 = 711, nine hundred and seventy-nine minus two hundred and sixty-eight is seven hundred and eleven
+310 + 454 = 764, three hundred and ten plus four hundred and fifty-four is seven hundred and sixty-four
+367 + 227 = 594, three hundred and sixty-seven plus two hundred and twenty-seven is five hundred and ninety-four
+693 - 825 = -132, six hundred and ninety-three minus eight hundred and twenty-five is minus one hundred and thirty-two
