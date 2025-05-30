@@ -1,9 +1,17 @@
 import math
+import time
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.nn.init as init
+import torch.optim as optim
+from torch.utils.data import IterableDataset, DataLoader
+from torch.optim.lr_scheduler import ReduceLROnPlateau
+from torch.nn.utils.rnn import pad_sequence
 from dataclasses import dataclass
+
+from tokenizer import myTokenizer
 
 @dataclass
 class ModelConfig:
@@ -13,11 +21,11 @@ class ModelConfig:
     num_layers: int = 6
     num_heads: int = 8
     dropout: float = 0.1
-    batch_size: int = 256
+    batch_size: int = 64
     max_len: int = 1024
     learning_rate: float = 0.0005
     reinit_percent: int = 10
-    epoch: int = 100
+    epoch: int = 400
     pad_token_id: int = 0
     device: str = "cpu"
     valid_pred_cnt: int = 1
@@ -50,6 +58,46 @@ class SinusoidalPositionEncoding(nn.Module):
         else:
             seq_len = x.size(1)
         return self.pe[:seq_len].unsqueeze(0).expand(x.size(0), -1, -1)
+    
+def precompute_freqs_cis(max_len: int, dim_head: int, device: str = 'cpu') -> torch.Tensor:
+    freqs = torch.arange(0, dim_head // 2, dtype=torch.float32, device=device)
+    freqs = 1.0 / (10000 ** (freqs / (dim_head // 2)))
+    freqs = freqs.unsqueeze(0).unsqueeze(0)
+
+    positions = torch.arange(max_len, dtype=torch.float32, device=device).unsqueeze(1)
+    theta = positions * freqs
+
+    freqs_cis = torch.polar(torch.ones_like(theta), theta)
+
+    return freqs_cis.to(device)
+
+
+def apply_rotary_emb(x: torch.Tensor, freqs_cis: torch.Tensor) -> torch.Tensor:
+    batch_size, seq_len, num_heads, dim_head = x.size()
+
+    freqs_cis_reshaped = freqs_cis[:, :seq_len, :].unsqueeze(2).expand(-1, -1, num_heads, -1)
+
+    real = x[..., :dim_head // 2]
+    imag = x[..., dim_head // 2:]
+
+    x_complex = torch.view_as_complex(torch.stack((real, imag), dim=-1))
+
+    x_rotated_complex = x_complex * freqs_cis_reshaped
+
+    x_rotated_real = x_rotated_complex.real
+    x_rotated_imag = x_rotated_complex.imag
+
+    return torch.cat((x_rotated_real, x_rotated_imag), dim=-1)
+    
+class RMSNorm(nn.Module):
+    def __init__(self, dim: int, eps: float = 1e-6):
+        super().__init__()
+        self.dim = dim
+        self.eps = eps
+        self.weight = nn.Parameter(torch.ones(dim))
+
+    def forward(self, x: torch.Tensor):
+        return F.rms_norm(x, (self.dim,), self.weight, self.eps)
 
 class MultiHeadAttention(nn.Module):
     def __init__(self, config: ModelConfig):
@@ -58,34 +106,31 @@ class MultiHeadAttention(nn.Module):
         
         self.num_heads = config.num_heads
         self.dim_model = config.dim_model
-        self.dim_head = config.dim_model // config.num_heads
+        self.dim_head = config.dim_head
         self.scale = self.dim_head ** -0.5
 
         self.qkv_proj = nn.Linear(config.dim_model, config.dim_model * 3)
         self.out_proj = nn.Linear(config.dim_model, config.dim_model)
         self.dropout = nn.Dropout(config.dropout)
 
-    def forward(self, x, mask=None):
+    def forward(self, x, freqs_cis, mask=None):
         batch_size, seq_len, _ = x.size()
         
-        qkv = self.qkv_proj(x).chunk(3, dim=-1)
-        q, k, v = map(lambda t: t.view(batch_size, seq_len, self.num_heads, self.dim_head).transpose(1, 2), qkv)
-        
+        xqkv = self.qkv_proj(x).chunk(3, dim=-1)
+        xq, xk, xv = map(lambda t: t.view(batch_size, seq_len, self.num_heads, self.dim_head).transpose(1, 2), xqkv)
+
+        q = apply_rotary_emb(xq, freqs_cis)
+        k = apply_rotary_emb(xk, freqs_cis)
+
         scores = torch.matmul(q, k.transpose(-2, -1)) * self.scale
-        
+
         if mask is not None:
-            if mask.dim() == 3:
-                mask = mask.unsqueeze(1)
-            elif mask.dim() == 2:
-                mask = mask.unsqueeze(1).unsqueeze(2)
-                mask = mask & mask.transpose(-2, -1)
-            
-            scores = scores.masked_fill(mask == 0, float('-inf'))
+            scores = scores.masked_fill(mask, float('-inf'))
         
         scores = F.softmax(scores, dim=-1)
         scores = self.dropout(scores)
         
-        out = torch.matmul(scores, v)
+        out = torch.matmul(scores, xv)
         out = out.transpose(1, 2).contiguous().view(batch_size, seq_len, self.dim_model)
         
         return self.out_proj(out)
@@ -100,14 +145,14 @@ class TransformerLayer(nn.Module):
             nn.Dropout(config.dropout),
             nn.Linear(config.dim_ff, config.dim_model)
         )
-        self.norm1 = nn.LayerNorm(config.dim_model, eps=1e-6)
-        self.norm2 = nn.LayerNorm(config.dim_model, eps=1e-6)
+        self.norm1 = RMSNorm(config.dim_model, eps=1e-6)
+        self.norm2 = RMSNorm(config.dim_model, eps=1e-6)
         self.dropout1 = nn.Dropout(config.dropout)
         self.dropout2 = nn.Dropout(config.dropout)
 
-    def forward(self, x, mask=None):
+    def forward(self, x, freqs_cis, mask=None):
         norm_x = self.norm1(x)
-        attn_out = self.attention(norm_x, mask)
+        attn_out = self.attention(norm_x, freqs_cis=freqs_cis, mask=mask)
         x = x + self.dropout1(attn_out)
         
         norm_x = self.norm2(x)
@@ -119,17 +164,17 @@ class TransformerLayer(nn.Module):
 class TransformerModel(nn.Module):
     def __init__(self, config: ModelConfig):
         super().__init__()
-        self.config = config
-        
+        self.max_len = config.max_len
+        self.dim_head = config.dim_head
+
         self.token_embedding = TokenEmbedding(config)
-        self.position_encoding = SinusoidalPositionEncoding(config.max_len, config.dim_model)
         self.embedding_dropout = nn.Dropout(config.dropout)
         
         self.layers = nn.ModuleList([
             TransformerLayer(config) for _ in range(config.num_layers)
         ])
-        
-        self.norm = nn.LayerNorm(config.dim_model, eps=1e-6)
+
+        self.norm = RMSNorm(config.dim_model, eps=1e-6)
         self.output_projection = nn.Linear(config.dim_model, config.vocab_size)
         
         self._init_parameters()
@@ -142,40 +187,80 @@ class TransformerModel(nn.Module):
         nn.init.xavier_uniform_(self.output_projection.weight)
         if self.output_projection.bias is not None:
             nn.init.zeros_(self.output_projection.bias)
-
-    def create_padding_mask(self, src, pad_idx=None):
-        if pad_idx is None:
-            pad_idx = self.config.pad_token_id
         
-        mask = (src != pad_idx).unsqueeze(1).unsqueeze(2)
-        return mask
-        
-    def forward(self, x, attention_mask=None):
+    def forward(self, x, freqs_cis=None, attention_mask=None):
         if attention_mask is None:
-            attention_mask = self.create_padding_mask(x)
-        
+            attention_mask = create_attention_mask(x, self.config.pad_token_id)
+        if freqs_cis is None:
+            freqs_cis = precompute_freqs_cis(self.max_len, self.dim_head, device=x.device)
+
         x = self.token_embedding(x)
-        pos_enc = self.position_encoding(x)
-        x = x + pos_enc
         x = self.embedding_dropout(x)
         
         for layer in self.layers:
-            x = layer(x, attention_mask)
-        
+            x = layer(x, freqs_cis=freqs_cis, mask=attention_mask)
+
         x = self.norm(x)
         output = self.output_projection(x)
         
         return output
+    
+@torch.no_grad()
+def reinit_bottom_n_percent_model(
+    model: nn.Module,
+    optimizer: torch.optim.Optimizer = None,
+    n_percent: float = 10.0,
+    init_fn_map: dict = None,
+    param_filter: callable = None
+):
+    if init_fn_map is None:
+        init_fn_map = {
+            'default': lambda t: nn.init.kaiming_normal_(t, nonlinearity='relu'),
+            'bias': lambda t: t.zero_()
+        }
+    if param_filter is None:
+        param_filter = lambda name, t: True
 
-from torch.utils.data import IterableDataset, DataLoader
-from torch.nn.utils.rnn import pad_sequence
-import torch
+    for name, param in model.named_parameters():
+        if not param.requires_grad or not param_filter(name, param):
+            continue
+
+        tensor = param.data
+        flat_abs = tensor.abs().flatten()
+
+        if flat_abs.numel() == 0:
+            continue
+
+        threshold = torch.quantile(flat_abs, n_percent / 100.0)
+        mask = tensor.abs() <= threshold
+        if not mask.any():
+            continue
+
+        new_tensor = torch.empty_like(tensor)
+        key = 'bias' if 'bias' in name else 'default'
+        init_fn = init_fn_map.get(key, init_fn_map['default'])
+        init_fn(new_tensor)
+
+        tensor[mask] = new_tensor[mask]
+
+        # if optimizer is not None:
+        #     state = optimizer.state.get(param)
+        #     if state is not None:
+        #         state['exp_avg'][mask] = 0
+        #         state['exp_avg_sq'][mask] = 0
+
 
 def create_attention_mask(input_ids, pad_token_id=0):
+
     batch_size, seq_len = input_ids.size()
-    mask = (input_ids != pad_token_id).float()
-    attention_mask = mask.unsqueeze(1).expand(batch_size, seq_len, seq_len)
-    return attention_mask
+    padding_mask = (input_ids == pad_token_id).unsqueeze(1).unsqueeze(2)
+ 
+    causal_mask = torch.triu(torch.full((seq_len, seq_len), True, dtype=torch.bool, device=input_ids.device), diagonal=1)
+    causal_mask = causal_mask.unsqueeze(0).unsqueeze(0)
+
+    combined_mask = torch.logical_or(padding_mask, causal_mask)
+
+    return combined_mask
 
 class LazyTextIterableDataset(IterableDataset):
     def __init__(self, text_generator_fn, tokenizer):
@@ -221,56 +306,19 @@ def create_dataloader(fileName, tokenizer, config):
     )
 
 
+def train_model(model, dataloader, validation_dataloader, config):
 
-def train_model(model, dataloader, config, device="cpu"):
-    import time
-    import math
-
-    import torch.optim as optim
-    from torch.optim.lr_scheduler import ReduceLROnPlateau
-    import torch.nn.init as init
-    
-    @torch.no_grad()
-    def reinit_bottom_n_percent_model(
-        model: nn.Module,
-        n_percent: float = 10.0,
-        init_fn_map: dict = None,
-        param_filter: callable = None
-    ):
-        if init_fn_map is None:
-            init_fn_map = {
-                'default': lambda t: init.kaiming_normal_(t, nonlinearity='leaky_relu'),
-                'bias':    lambda t: t.zero_()
-            }
-        if param_filter is None:
-            param_filter = lambda name, t: True
-
-        for name, param in model.named_parameters():
-            if not param.requires_grad or not param_filter(name, param):
-                continue
-
-            tensor = param.data
-            flat = tensor.abs().flatten()
-            if flat.numel() == 0:
-                continue
-            thr = torch.quantile(flat, n_percent / 100.0)
-
-            mask = tensor.abs() <= thr
-
-            new_t = torch.empty_like(tensor)
-            key = 'bias' if 'bias' in name else 'default'
-            init_fn_map.get(key, init_fn_map['default'])(new_t)
-
-            tensor[mask] = new_t[mask]
 
     startTime = time.time()
     avg_loss = config.reinit_percent
     trainLossHistory = []
+    validationLossHistory = []
     limit = int(config.epoch * 0.9)
     step = 0
     
     optimizer = optim.AdamW(model.parameters(), lr=config.learning_rate, betas=(0.9, 0.98), eps=1e-9)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
+    freqs_cis = precompute_freqs_cis(config.max_len, config.dim_head, device=config.device)
 
     for epoch in range(config.epoch):
         epochStartTime = time.time()
@@ -279,11 +327,11 @@ def train_model(model, dataloader, config, device="cpu"):
         optimizer.zero_grad()
 
         for i, batch in enumerate(dataloader):
-            input_ids = batch['input_ids'].to(device)
-            labels = batch['labels'].to(device)
-            attention_mask = batch['attention_mask'].to(device)
+            input_ids = batch['input_ids'].to(config.device)
+            labels = batch['labels'].to(config.device)
+            attention_mask = batch['attention_mask'].to(config.device)
 
-            outputs = model(input_ids, attention_mask)
+            outputs = model(input_ids, freqs_cis=freqs_cis, attention_mask=attention_mask)
             loss = F.cross_entropy(
                 outputs.view(-1, config.vocab_size),
                 labels.view(-1),
@@ -298,50 +346,50 @@ def train_model(model, dataloader, config, device="cpu"):
             optimizer.step()
             optimizer.zero_grad()
 
-        reinit_epoch = step * 10
+        avg_loss = epoch_loss / batch_count
+        scheduler.step(avg_loss)
+        trainLossHistory.append(avg_loss)
+
+        if (epoch + 1) % 10 == 0 or (epoch + 1) == config.epoch:
+            val_loss = validate_model(model, validation_dataloader, freqs_cis, config)
+            print(f"Validation Loss after Epoch {epoch+1}: {val_loss:.6f}")
+            model.train()
+        else:
+            val_loss = None
+        validationLossHistory.append(val_loss)
+
+        reinit_epoch = step * 20
         if epoch >= reinit_epoch and reinit_epoch <= limit:
-            current_rate = min(config.reinit_percent, avg_loss)
+            current_rate = min(config.reinit_percent, avg_loss ** 2)
             if current_rate > 0:
                 reinit_bottom_n_percent_model(
                     model,
+                    optimizer=optimizer,
                     n_percent=current_rate,
                     init_fn_map={
-                        'default': lambda t: init.kaiming_normal_(t, nonlinearity='leaky_relu'),
+                        'default': lambda t: init.kaiming_normal_(t, nonlinearity='relu'),
                         'bias':    lambda t: t.zero_()
                     },
-                    param_filter=lambda name, t: 'norm' not in name
+                    param_filter=lambda name, t: all(
+                        k not in name.lower() for k in ['norm', 'embedding']
+                    )
                 )
-                print(f"Reinitialized {current_rate}% of model parameters")
+                print(f"Reinitialized {current_rate:.2f}% of model parameters")
             else:
                 print("No parameters were reinitialized.")
             step += 1
-            
 
-        avg_loss = epoch_loss / batch_count
-        scheduler.step(avg_loss)
-
-        trainLossHistory.append(avg_loss)
-
-        # if avg_loss < best_loss:
-        #     best_loss = avg_loss
-        #     torch.save({
-        #         'epoch': epoch,
-        #         'model_state_dict': model.state_dict(),
-        #         'optimizer_state_dict': optimizer.state_dict(),
-        #         'loss': best_loss,
-        #     }, f"transformer_model_best.pth")
         epochEndTime = time.time()
-        print(f"Epoch {epoch+1}/{config.epoch}, Average Loss: {avg_loss:.6f} completed in {epochEndTime - epochStartTime:.2f} seconds")
+        print(f"Epoch {epoch+1}/{config.epoch}, train Loss: {avg_loss:.6f} completed in {epochEndTime - epochStartTime:.2f} seconds")
 
     elapsedTime = time.time() - startTime
-    print("Training completed in {:.2f} seconds".format(elapsedTime))
-    return model
+    print(f"Training completed in {elapsedTime:.2f} seconds")
+    return model, trainLossHistory, validationLossHistory, elapsedTime
 
-def validate_model(model, dataloader, config):
+def validate_model(model, dataloader, freqs_cis, config):
     model.eval()
     running_loss = 0.0
     validated_cnt = 0
-    predictions = []
 
     with torch.no_grad():
         for batch in dataloader:
@@ -350,10 +398,9 @@ def validate_model(model, dataloader, config):
             attention_mask = batch['attention_mask'].to(config.device)
 
             for i in range(config.valid_pred_cnt):
-                # print("Input IDs:", input_ids[0].tolist())
                 # print("input text:", tokenizer.decode(input_ids[0].tolist()))
 
-                outputs = model(input_ids, attention_mask)
+                outputs = model(input_ids, freqs_cis=freqs_cis, attention_mask=attention_mask)
                 loss = F.cross_entropy(
                     outputs.view(-1, config.vocab_size),
                     labels.view(-1),
@@ -363,9 +410,8 @@ def validate_model(model, dataloader, config):
                 predict = torch.argmax(outputs, dim=-1)
                 tokens = predict[0].tolist()
 
-                # print("Predicted Tokens:", tokens)
-                print("Predicted Text:", tokenizer.decode(tokens))
-                print("Loss:", loss.item())
+                # print("Predicted Text:", tokenizer.decode(tokens))
+                # print("Loss:", loss.item())
 
                 new_input = torch.cat(
                     (input_ids[:, :], torch.tensor([[tokens[0]]], dtype=input_ids.dtype)),
@@ -378,65 +424,53 @@ def validate_model(model, dataloader, config):
                 labels[:, -1] = -100
                 attention_mask = create_attention_mask(input_ids, config.pad_token_id).to(config.device)
 
-                predictions.append(tokens[0])
                 running_loss += loss.item()
                 validated_cnt += 1
 
     running_loss /= validated_cnt
-    # print("Final prediction:", predictions)
-    print("Total loss:", running_loss)
+    return running_loss
+
+
+if __name__ == "__main__":
+    start = time.time()
+    trainfilename = "basic_math_dataset.txt"
+    validationfilename = "basic_math_dataset2.txt"
+
+    print("Start reading data")
+
+    tokenizer = myTokenizer()
+    config = ModelConfig()
+    config.dim_head = config.dim_model // config.num_heads
+    validation_config = ModelConfig()
+    validation_config.batch_size = 1
+
+    if config.seed:
+        def setSeed(seed):
+            import random
+            random.seed(seed)
+            np.random.seed(seed)
+            torch.manual_seed(seed)
+            torch.cuda.manual_seed_all(seed)
+            torch.backends.cudnn.deterministic = True
+            torch.backends.cudnn.benchmark = False
+        setSeed(config.seed)
+
+    dataloader = create_dataloader(trainfilename, tokenizer, config)
+    validation_dataloader = create_dataloader(validationfilename, tokenizer, validation_config)
+    print("Data loaded successfully")
+
+    model = TransformerModel(config)
+    model.to(config.device)
+    model.train()
+    trained_model, trainLossHistory, validationLossHistory, elapsedTime = train_model(model, dataloader, validation_dataloader, config)
 
 
     with open("performance.txt", "a") as f:
         f.write("model config: ")
         f.write(str(config) + "\n")
-        f.write("validation loss: ")
-        f.write(str(running_loss) + "\n")
-    print("Validation completed!")
+        f.write("train loss history: " + str(trainLossHistory) + "\n")
+        f.write("validation loss history: " + str(validationLossHistory) + "\n")
+        f.write("best validation loss: " + str(min([loss for loss in validationLossHistory if loss is not None])) + "\n")
+        f.write(f"training time: {elapsedTime:.2f} seconds\n")
+
     print("Performance saved to performance.txt")
-
-import gc
-from tokenizer import myTokenizer
-
-if __name__ == "__main__":
-    trainfilename = "basic_math_dataset.txt"
-    validationfilename = "basic_math_dataset2.txt"
-    # filename = "depression_dataset.txt"
-
-    print("Start reading data")
-
-    def setSeed(seed):
-        import random
-        random.seed(seed)
-        np.random.seed(seed)
-        torch.manual_seed(seed)
-        torch.cuda.manual_seed_all(seed)
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
-
-    tokenizer = myTokenizer()
-    config = ModelConfig()
-
-    if config.seed:
-        setSeed(config.seed)
-
-    dataloader = create_dataloader(trainfilename, tokenizer, config, shuffle=True)
-
-    print("Data loaded successfully")
-
-    model = TransformerModel(config)
-    
-    model.to(config.device)
-    model.train()
-    trained_model = train_model(model, dataloader, config)
-
-    del dataloader
-    gc.collect()
-
-    model.eval()
-    config.batch_size = 1
-    print("Start validation")
-
-    validation_dataloader = create_dataloader(validationfilename, tokenizer, config)
-
-    validate_model(model, validation_dataloader, config)

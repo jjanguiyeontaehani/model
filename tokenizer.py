@@ -60,7 +60,10 @@ class myTokenizer:
         tokenizer.post_processor = processors.TemplateProcessing(
             single=self.single_template,
             pair=self.pair_template,
-            special_tokens=[(self.special_tokens[2], 0), (self.special_tokens[3], 1)],
+            special_tokens=[
+                (self.special_tokens[2], tokenizer.token_to_id(self.special_tokens[2])),
+                (self.special_tokens[3], tokenizer.token_to_id(self.special_tokens[3]))
+            ]
         )
 
 
