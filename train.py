@@ -8,6 +8,7 @@ import torch.optim as optim
 from torch.utils.data import IterableDataset, DataLoader
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.nn.utils.rnn import pad_sequence
+from torch.utils.tensorboard import SummaryWriter
 
 from model import TransformerModel, precompute_freqs_cis, create_attention_mask, ModelConfig
 from tokenizer import myTokenizer
@@ -99,17 +100,17 @@ def reinit_bottom_n_percent_model(
         #         state['exp_avg'][mask] = 0
         #         state['exp_avg_sq'][mask] = 0
 
-def train_model(model, dataloader, validation_dataloader, config):
+def train_model(model, dataloader, validation_dataloader, config, writer=None):
     startTime = time.time()
     avg_loss = config.reinit_percent
     trainLossHistory = []
     validationLossHistory = []
     validationAccuracyHistory = []
-    limit = int(config.epoch * 0.9)
+    limit = int(config.epoch * 0.7)
     step = 0
     
     optimizer = optim.AdamW(model.parameters(), lr=config.learning_rate, betas=(0.9, 0.98), eps=1e-9)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=2)
     freqs_cis = precompute_freqs_cis(config.max_len, config.dim_head, device=config.device)
 
     for epoch in range(config.epoch):
@@ -139,11 +140,11 @@ def train_model(model, dataloader, validation_dataloader, config):
             optimizer.zero_grad()
 
         avg_loss = epoch_loss / batch_count
-        scheduler.step(avg_loss)
         trainLossHistory.append(avg_loss)
 
-        if (epoch + 1) % 10 == 0 or (epoch + 1) == config.epoch:
+        if (epoch + 1) % 2 == 0 or (epoch + 1) == config.epoch:
             val_loss, val_acc = validate_model(model, validation_dataloader, freqs_cis, config)
+            scheduler.step(val_loss)
             print(f"Validation Loss after Epoch {epoch+1}: {val_loss:.6f}, Validation Accuracy: {val_acc:.2f}")
             model.train()
         else:
@@ -151,6 +152,14 @@ def train_model(model, dataloader, validation_dataloader, config):
             val_acc = None
         validationLossHistory.append(val_loss)
         validationAccuracyHistory.append(val_acc)
+
+        if writer:
+            writer.add_scalar('Loss/train', avg_loss, epoch)
+            writer.add_scalar('Learning Rate', optimizer.param_groups[0]['lr'], epoch)
+            if val_loss is not None:
+                writer.add_scalar('Loss/validation', val_loss, epoch+1)
+            if val_acc is not None:
+                writer.add_scalar('Accuracy/validation', val_acc, epoch+1)
 
         reinit_epoch = step * 20
         if epoch >= reinit_epoch and reinit_epoch <= limit:
@@ -241,6 +250,11 @@ if __name__ == "__main__":
     validation_config = ModelConfig()
     validation_config.batch_size = 1
 
+    if config.reinit_percent == 0:
+        writer = SummaryWriter(log_dir="logs/reinit_false")
+    else:
+        writer = SummaryWriter(log_dir="logs/reinit_true")
+
     if config.seed:
         def setSeed(seed):
             import random
@@ -259,8 +273,11 @@ if __name__ == "__main__":
     model = TransformerModel(config)
     model.to(config.device)
     model.train()
-    trained_model, trainLossHistory, validationLossHistory, validationAccuracyHistory, elapsedTime = train_model(model, dataloader, validation_dataloader, config)
+    trained_model, trainLossHistory, validationLossHistory, validationAccuracyHistory, elapsedTime = train_model(
+        model, dataloader, validation_dataloader, config, writer
+    )
 
+    writer.close()
 
     with open("performance.txt", "a") as f:
         f.write("model config: ")

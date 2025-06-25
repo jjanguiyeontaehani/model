@@ -16,7 +16,7 @@ class ModelConfig:
     max_len: int = 1024
     learning_rate: float = 0.0005
     reinit_percent: int = 10
-    epoch: int = 10
+    epoch: int = 200
     pad_token_id: int = 0
     device: str = "cpu"
     valid_pred_cnt: int = 1
