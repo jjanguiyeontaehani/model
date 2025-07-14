@@ -106,11 +106,10 @@ def train_model(model, dataloader, validation_dataloader, config, writer=None):
     trainLossHistory = []
     validationLossHistory = []
     validationAccuracyHistory = []
-    limit = int(config.epoch * 0.7)
     step = 0
     
     optimizer = optim.AdamW(model.parameters(), lr=config.learning_rate, betas=(0.9, 0.98), eps=1e-9)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=2)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
     freqs_cis = precompute_freqs_cis(config.max_len, config.dim_head, device=config.device)
 
     for epoch in range(config.epoch):
@@ -161,8 +160,12 @@ def train_model(model, dataloader, validation_dataloader, config, writer=None):
             if val_acc is not None:
                 writer.add_scalar('Accuracy/validation', val_acc, epoch+1)
 
+        if config.learning_rate / 50 > optimizer.param_groups[0]['lr']:
+            print("Learning rate is too low, stopping training.")
+            break
+
         reinit_epoch = step * 20
-        if epoch >= reinit_epoch and reinit_epoch <= limit:
+        if epoch >= reinit_epoch and config.learning_rate / 10 < optimizer.param_groups[0]['lr']:
             current_rate = min(config.reinit_percent, avg_loss ** 2)
             if current_rate > 0:
                 reinit_bottom_n_percent_model(
@@ -251,9 +254,9 @@ if __name__ == "__main__":
     validation_config.batch_size = 1
 
     if config.reinit_percent == 0:
-        writer = SummaryWriter(log_dir="logs/reinit_false")
+        writer = SummaryWriter(log_dir="logs/reinit_false/seed_" + str(config.seed))
     else:
-        writer = SummaryWriter(log_dir="logs/reinit_true")
+        writer = SummaryWriter(log_dir="logs/reinit_true/seed_" + str(config.seed))
 
     if config.seed:
         def setSeed(seed):

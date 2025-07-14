@@ -20,7 +20,7 @@ class ModelConfig:
     pad_token_id: int = 0
     device: str = "cpu"
     valid_pred_cnt: int = 1
-    seed: int = 18
+    seed: int = 218
 
 class TokenEmbedding(nn.Module):
     def __init__(self, config: ModelConfig):
